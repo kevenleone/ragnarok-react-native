@@ -54,3 +54,14 @@ export const IconView = styled.View`
   justify-content: center;
   margin-right: 10px;
 `;
+
+export const Touchable = styled.TouchableOpacity`
+  margin-top: 10px;
+  margin-bottom: -10px;
+  margin-left: 8px;
+`;
+
+export const ButtonText = styled.Text`
+  color: #666;
+  font-weight: 500;
+`;
