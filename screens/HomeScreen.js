@@ -1,11 +1,12 @@
 import React from 'react';
 import MonsterInfo from '../components/MonsterInfo';
 import MonsterList from '../components/MonsterList';
+import Home from '../components/Home';
 
 const HomeScreen = () => (
   <>
     {/* <MonsterList /> */}
-    <MonsterInfo />
+    <Home />
   </>
 );
 

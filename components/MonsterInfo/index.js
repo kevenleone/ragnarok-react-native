@@ -22,7 +22,7 @@ import MonsterLocation from '../MonsterLocation';
 import MonsterDrops from '../MonsterDrops';
 
 const MonsterInfo = () => {
-  const [selectedIndex, setIndex] = useState(1);
+  const [selectedIndex, setIndex] = useState(2);
   const buttons = ['Stats', 'Drops', 'Location'];
 
   return (

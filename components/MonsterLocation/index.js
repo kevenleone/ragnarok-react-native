@@ -1,11 +1,31 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-// import {} from './styles';
+import {
+  Container, CardList, Card, Loading, Map, MapTitle, Info,
+} from './styles';
 
-const index = () => (
-  <View>
-    <Text>Oi Location</Text>
-  </View>
+const MapLocation = () => (
+  <Card>
+    <MapTitle>pay_fild04</MapTitle>
+    <Map
+      source={{ uri: 'http://www.ragnadb.com.br/img/maps/prontera.gif' }}
+    />
+    <Info> 10 / Minutes </Info>
+  </Card>
 );
 
-export default index;
+const MonsterLocation = () => (
+  <Container>
+    <CardList
+      horizontal
+      showsHorizontalScrollIndicator={false}
+    >
+      <MapLocation />
+      <MapLocation />
+      <MapLocation />
+      <MapLocation />
+    </CardList>
+  </Container>
+);
+
+export default MonsterLocation;

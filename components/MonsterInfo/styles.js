@@ -5,7 +5,7 @@ export const Container = styled.View`
   flex: 1;
 `;
 export const Monster = styled.View`
-  background-color: #1ABC9C;
+  background-color: #1A5276;
   height: 40%;
   padding: 20px;
 `;
