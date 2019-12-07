@@ -16,14 +16,13 @@ import {
   ScrollView,
   ButtonGroup,
 } from './styles';
-import ProgressBar from '../ProgressBar';
 
 import MonsterStats from '../MonsterStats';
 import MonsterLocation from '../MonsterLocation';
 import MonsterDrops from '../MonsterDrops';
 
 const MonsterInfo = () => {
-  const [selectedIndex, setIndex] = useState(0);
+  const [selectedIndex, setIndex] = useState(1);
   const buttons = ['Stats', 'Drops', 'Location'];
 
   return (

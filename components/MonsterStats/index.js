@@ -17,6 +17,15 @@ const MonsterStats = () => (
     <Status />
     <Status />
     <Status />
+    <Status />
+    <Status />
+    <Status />
+    <Status />
+    <Status />
+    <Status />
+    <Status />
+    <Status />
+    <Status />
   </>
 );
 
