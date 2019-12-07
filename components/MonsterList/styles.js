@@ -1,6 +1,23 @@
 import styled from 'styled-components/native';
 
+export const SafeArea = styled.SafeAreaView`
+flex: 1`;
+
 export const ScrollView = styled.ScrollView`
+  flex: 1;
+`;
+
+export const View = styled.View`
+  margin-top: 60px;
+  padding: 10px;
+  flex: 1;
+`;
+
+export const Title = styled.Text`
+  font-weight: 600;
+  font-size: 24px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 `;
 
 export const Container = styled.View`
@@ -18,24 +35,24 @@ export const Monster = styled.TouchableOpacity`
 `;
 
 export const Image = styled.Image`
-  resize-mode: stretch;
   margin-left: auto;
-  margin-right: auto;
-  width: 150px;
+  margin-right: 10px;
+  width: 120px;
   height: 100px;
 `;
 
 export const Info = styled.View`
-  align-items: center;
-  padding: 10px;
+  padding-left: 10px;
 `;
 export const MonsterName = styled.Text`
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
+  margin-top: 20px;
   color: #fff;
 `;
 
 export const MonsterRace = styled.Text`
-  font-size: 19px;
-  color: #fff;
+  font-size: 16px;
+  color: #dadada;
+  font-weight: 600;
 `;

@@ -1,16 +1,17 @@
-import React from 'react'
-import { View, Text } from 'react-native';
+import React from 'react';
 import MonsterInfo from '../components/MonsterInfo';
 import MonsterList from '../components/MonsterList';
 
-const HomeScreen = () => {
-  return (
-    <MonsterList />
-  )
-}
+const HomeScreen = () => (
+  <>
+    {/* <MonsterList /> */}
+    <MonsterInfo />
+  </>
+);
 
 HomeScreen.navigationOptions = {
-  title: "Ragnarok Online",
+  header: null,
+  title: 'Ragnarok Online',
   headerStyle: {
     backgroundColor: '#333',
   },
@@ -21,4 +22,4 @@ HomeScreen.navigationOptions = {
 };
 
 
-export default HomeScreen
+export default HomeScreen;
