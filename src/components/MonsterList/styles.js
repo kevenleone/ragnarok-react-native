@@ -1,4 +1,9 @@
 import styled from 'styled-components/native';
+import { FlatList } from 'react-native';
+
+function handleBackgroundColor({ color }) {
+  return `background-color: ${color || '#333'}`;
+}
 
 export const SafeArea = styled.SafeAreaView`
 flex: 1`;
@@ -27,18 +32,23 @@ export const Container = styled.View`
 `;
 
 export const Monster = styled.TouchableOpacity`
-  backgroundColor: #333;
+  ${handleBackgroundColor}
   margin: 3px;
   width: 48%;
-  height: 180px;
+  height: 150px;
   border-radius: 2px;
 `;
 
 export const Image = styled.Image`
+  width: 70px;
+  height: 70px;
+  resize-mode: stretch;
+`;
+
+export const IconView = styled.View`
+  justify-content: center;
   margin-left: auto;
   margin-right: 10px;
-  width: 120px;
-  height: 100px;
 `;
 
 export const Info = styled.View`
@@ -55,4 +65,8 @@ export const MonsterRace = styled.Text`
   font-size: 16px;
   color: #dadada;
   font-weight: 600;
+`;
+
+export const List = styled(FlatList)`
+
 `;

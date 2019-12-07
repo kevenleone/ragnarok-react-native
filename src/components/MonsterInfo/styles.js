@@ -1,11 +1,15 @@
 import styled from 'styled-components/native';
 import { ButtonGroup as BtnGroup } from 'react-native-elements';
 
+function handleBackgroundColor({ color }) {
+  return `background-color: ${color || '#333'}`;
+}
+
 export const Container = styled.View`
   flex: 1;
 `;
 export const Monster = styled.View`
-  background-color: #1A5276;
+  ${handleBackgroundColor}
   height: 40%;
   padding: 20px;
 `;
@@ -37,7 +41,7 @@ export const Badge = styled.View`
   background-color: #333;
   border-radius: 10px;
   padding: 10px;
-  width: 60px;
+  width: 100px;
 `;
 
 export const Text = styled.Text`

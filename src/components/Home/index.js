@@ -4,122 +4,101 @@ import {
   Container, Content, Title, Input, CardList, Card, Text, Icon, IconView, Touchable, ButtonText,
 } from './styles';
 
-const races = [
-  {
-    title: 'Amorfo',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1777/tita-de-gelo.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Morto',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1991/leao-de-vinhas.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Bruto',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Planta',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Inseto',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Peixe',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Demônio',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Anjo',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Dragão',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-  {
-    title: 'Humanóide',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      alert('Should Type');
-    },
-    color: '#333',
-  },
-];
+// const races = [
+//   {
+//     title: 'Amorfo',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1777/tita-de-gelo.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Morto',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1991/leao-de-vinhas.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Bruto',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Planta',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Inseto',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Peixe',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Demônio',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Anjo',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Dragão',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+//   {
+//     title: 'Humanóide',
+//     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
+//     action() {
+//       alert('Should Type');
+//     },
+//     color: '#333',
+//   },
+// ];
 
-const List = [
-  {
-    title: 'Monsters',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
-    action() {
-      return {
-        page: 'MonstersScreen',
-        payload: '',
-      };
-    },
-  },
-  {
-    title: 'Races',
-    uri: 'http://www.ragnadb.com.br/img/monstro/1511/amon-ra.gif',
-    action: races,
-  },
-  {
-    title: 'Maps',
-    uri: 'http://www.ragnadb.com.br/img/maps/prontera.gif',
-    action() {
-      alert('Abrir página Maps');
-    },
-  },
-  {
-    title: 'Itens',
-    uri: 'http://www.ragnadb.com.br/img/item-small/7053/cyfar.gif',
-    action: [],
-  },
-];
-
-const Home = ({ navigation }) => {
+const Home = ({ navigation, list, races }) => {
   const [subItems, setSubItems] = useState(null);
-  const useItems = subItems || List;
+
+  const newList = list.map((lx) => {
+    if (lx.title === 'Races') {
+      lx.action = races;
+    }
+    return lx;
+  });
+
+  const useItems = subItems || newList;
+  // console.log(subItems ? subItems.length : 'Aff');
 
   function onClickCategory(action) {
     if (typeof action === 'function') {
@@ -151,8 +130,14 @@ const Home = ({ navigation }) => {
 
         <CardList>
           {
-            useItems.map(({ action, title, uri }) => (
-              <Card key={title} onPress={() => onClickCategory(action)}>
+            useItems.map(({
+              action, title, uri, color,
+            }) => (
+              <Card
+                key={title}
+                color={color}
+                onPress={() => onClickCategory(action)}
+              >
                 <Text>{title}</Text>
                 <IconView>
                   <Icon

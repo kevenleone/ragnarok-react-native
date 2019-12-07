@@ -21,15 +21,21 @@ import MonsterStats from '../MonsterStats';
 import MonsterLocation from '../MonsterLocation';
 import MonsterDrops from '../MonsterDrops';
 
-const MonsterInfo = () => {
+const MonsterInfo = ({ navigation, monster }) => {
+  const { goBack } = navigation;
+  const {
+    kName, race, id, image, color,
+  } = monster;
   const [selectedIndex, setIndex] = useState(2);
   const buttons = ['Stats', 'Drops', 'Location'];
-
   return (
     <Container>
-      <Monster>
+      <Monster color={color}>
         <HeaderArea>
-          <Touchable style={{ marginRight: 'auto' }}>
+          <Touchable
+            onPress={() => goBack()}
+            style={{ marginRight: 'auto' }}
+          >
             <Ionicons
               name="ios-arrow-back"
               color="white"
@@ -45,18 +51,21 @@ const MonsterInfo = () => {
           </Touchable>
         </HeaderArea>
         <Row>
-          <MonsterTitle>Valquíria Randgris</MonsterTitle>
-          <MonsterTitle style={{ marginTop: 9, fontSize: 18, marginLeft: 'auto' }}>#1000</MonsterTitle>
+          <MonsterTitle>{kName}</MonsterTitle>
+          <MonsterTitle style={{ marginTop: 9, fontSize: 18, marginLeft: 'auto' }}>
+            #
+            {id}
+          </MonsterTitle>
         </Row>
         <Badge>
-          <Text>Anjo</Text>
+          <Text>{race}</Text>
         </Badge>
 
       </Monster>
       <MonsterDetail>
         <ImageView>
           <Image
-            source={{ uri: 'https://static.ragnaplace.com/bro/mob/1751.gif' }}
+            source={{ uri: image ? image.animated : null }}
           />
         </ImageView>
         <ButtonGroup

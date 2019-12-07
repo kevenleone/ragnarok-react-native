@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
 import { Input as InputField } from 'react-native-elements';
 
+function handleBackgroundColor({ color }) {
+  return `background-color: ${color || '#333'}`;
+}
+
 export const Container = styled.View`
   padding: 30px;
 `;
@@ -25,7 +29,7 @@ export const CardList = styled.View`
 `;
 
 export const Card = styled.TouchableOpacity`
-  background-color: #555;
+  ${handleBackgroundColor}
   width: 45%;
   height: 60px;
   margin-horizontal: 5px;
