@@ -16,14 +16,13 @@ Ragnarok app built with React Native
 Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) to download the latest available apk.
 
 ## App preview
-
-![Home](screenshots/home.png "Home")
-![Races](screenshots/races.png "Home")
-![Monster List](screenshots/list.png "Monster List")
-![Monster Info](screenshots/stats.png "Monster Info")
-![Monster Drops](screenshots/drops.png "Monster Drops")
-![Monster Location](screenshots/location.png "Monster Location")
-![Loading](screenshots/loading.png "Loading")
+<img src="screenshots/home.png" alt="Home">
+<img src="screenshots/races.png" alt="Races">
+<img src="screenshots/list.png" alt="Monster List">
+<img src="screenshots/stats.png" alt="Monster Info">
+<img src="screenshots/drops.png" alt="Monster Drops">
+<img src="screenshots/location.png" alt="Monster Location">
+<img src="screenshots/loading.png" alt="Loading">
 
 ## Installation
 
