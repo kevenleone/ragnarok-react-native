@@ -2,19 +2,24 @@ import React, { useState } from 'react';
 import { Query } from 'react-apollo';
 import MonsterList from '../../components/MonsterList';
 import { getMonsterFilter } from '../../graphql/gql/query/monster';
+import Page from '../../components/Page';
 
 const defaultVariables = {
   data: {
-    Page: 20,
+    Page: 3,
   },
 };
 
 const Monsters = ({ navigation }) => {
   const [variables, setVariables] = useState(defaultVariables);
   const [monsters, setMonsters] = useState([]);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   function onCompleted(data) {
     setMonsters([...monsters, ...data.getMonsterFilter]);
+    if (firstLoad) {
+      setFirstLoad(false);
+    }
   }
 
   return (
@@ -24,12 +29,15 @@ const Monsters = ({ navigation }) => {
       variables={variables}
     >
       {({ loading }) => (
-        <MonsterList
-          list={monsters}
-          navigation={navigation}
-          variables={variables}
-          setVariables={setVariables}
-        />
+        <Page loading={loading && firstLoad}>
+          <MonsterList
+            list={monsters}
+            navigation={navigation}
+            variables={variables}
+            setVariables={setVariables}
+            firstLoad
+          />
+        </Page>
       )}
     </Query>
   );

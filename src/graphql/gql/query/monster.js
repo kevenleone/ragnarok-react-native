@@ -1,5 +1,19 @@
 import gql from 'graphql-tag';
 
+const status = 'HP, SP, EXP, JEXP, ATK1, ATK2, DEF, MDEF, STR, AGI, VIT, INT, DEX, LUK';
+
+const MonsterStatus = gql`
+  fragment MonsterStatus on Monster {
+    ${status}
+  }
+`;
+
+const StatusReference = gql`
+  fragment StatusReference on StatusReference {
+    ${status}
+  }
+`;
+
 export const getMonsterFilter = gql`
   query getMonsterFilter($data: MonsterFilter!) {
     getMonsterFilter(data: $data) {
@@ -33,7 +47,15 @@ export const getMonsterById = gql`
           spawn
           quantity
         }
+        statusReference {
+          ...StatusReference
+        }
         color
+        ...MonsterStatus
       }
     }
+    ${MonsterStatus}
+    ${StatusReference}
 `;
+
+// # ${MonsterStatusAbc}

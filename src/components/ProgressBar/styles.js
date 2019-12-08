@@ -1,5 +1,13 @@
 import styled from 'styled-components/native';
 
+function handlePercentage({ percent }) {
+  return `width: ${percent || 1}%`;
+}
+
+function handleColor({ color }) {
+  return `background-color: ${color || '#1A5276'}`;
+}
+
 export const Border = styled.View`
   borderRadius: 4px;
   background-color: #eee;
@@ -10,7 +18,7 @@ export const Border = styled.View`
 `;
 
 export const Progress = styled.View`
-  background-color: #1A5276;
-  width: 40%;
+  ${handlePercentage};
+  ${handleColor};
   height: 10px;
 `;

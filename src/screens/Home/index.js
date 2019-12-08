@@ -2,6 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import Home from '../../components/Home';
 import race from '../../graphql/gql/query/race';
+import Page from '../../components/Page';
 
 const List = [
   {
@@ -36,7 +37,10 @@ const List = [
 function normalizeRace(races) {
   if (races && races.getRaces.length) {
     return races.getRaces.map((race) => ({
-      title: race.race, id: race.id, color: race.background, uri: race.representationMonster.image.animated,
+      title: race.race,
+      id: race.id,
+      color: race.background,
+      uri: race && race.representationMonster ? race.representationMonster.image.animated : null,
     }));
   }
   return [];
@@ -47,11 +51,19 @@ const HomeScreen = ({ navigation }) => (
     {({ data, loading }) => {
       const races = normalizeRace(data);
       return (
-        <Home navigation={navigation} list={List} races={races} />
+        <Page loading={loading}>
+          <Home
+            loading={loading}
+            navigation={navigation}
+            list={List}
+            races={races}
+          />
+        </Page>
       );
     }}
   </Query>
 );
+
 HomeScreen.navigationOptions = {
   header: null,
 };

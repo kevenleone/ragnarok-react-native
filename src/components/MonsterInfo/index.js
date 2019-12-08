@@ -26,7 +26,7 @@ const MonsterInfo = ({ navigation, monster }) => {
   const {
     kName, race, id, image, color, mobplace,
   } = monster;
-  const [selectedIndex, setIndex] = useState(2);
+  const [selectedIndex, setIndex] = useState(0);
   const buttons = ['Stats', 'Drops', 'Location'];
   return (
     <Container>
@@ -77,7 +77,7 @@ const MonsterInfo = ({ navigation, monster }) => {
         <ScrollView>
           <Switch>
             <Case condition={selectedIndex === 0}>
-              <MonsterStats />
+              <MonsterStats monster={monster} />
             </Case>
             <Case condition={selectedIndex === 1}>
               <MonsterDrops />

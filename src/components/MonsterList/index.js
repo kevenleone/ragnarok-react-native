@@ -30,36 +30,35 @@ const MonsterList = ({
   return (
     <View>
       <Title>Monsters</Title>
-      <ScrollView>
-        <List
-          data={list}
-          keyExtractor={(data) => data.id + data.kName}
-          onEndReachedThreshold={0.01}
-          // onEndReached={loadMore}
-          numColumns={2}
-          ListFooterComponent={renderFooter}
-          renderItem={({ item }) => {
-            const {
-              id, race, kName, color, image: { animated },
-            } = item;
-            return (
-              <Monster
-                key={id}
-                color={color}
-                onPress={() => onSelectMonster(id)}
-              >
-                <Info>
-                  <MonsterName>{kName}</MonsterName>
-                  <MonsterRace>{race}</MonsterRace>
-                </Info>
-                <IconView>
-                  <Image source={{ uri: animated }} />
-                </IconView>
-              </Monster>
-            );
-          }}
-        />
-      </ScrollView>
+      <List
+        data={list}
+        keyExtractor={(data) => `${data.id}-${Math.random() * 20000}`}
+        showsVerticalScrollIndicator={false}
+        onEndReachedThreshold={0.01}
+        onEndReached={loadMore}
+        numColumns={2}
+        ListFooterComponent={renderFooter}
+        renderItem={({ item }) => {
+          const {
+            id, race, kName, color, image: { animated },
+          } = item;
+          return (
+            <Monster
+              key={id}
+              color={color}
+              onPress={() => onSelectMonster(id)}
+            >
+              <Info>
+                <MonsterName>{kName}</MonsterName>
+                <MonsterRace>{race}</MonsterRace>
+              </Info>
+              <IconView>
+                <Image source={{ uri: animated }} />
+              </IconView>
+            </Monster>
+          );
+        }}
+      />
     </View>
   );
 };
