@@ -5,7 +5,7 @@ import { getMonsterFilter } from '../../graphql/gql/query/monster';
 
 const defaultVariables = {
   data: {
-    Page: 8,
+    Page: 20,
   },
 };
 

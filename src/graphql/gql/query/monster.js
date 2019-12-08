@@ -27,6 +27,12 @@ export const getMonsterById = gql`
           animated
           static
         }
+        mobplace {
+          id
+          map
+          spawn
+          quantity
+        }
         color
       }
     }

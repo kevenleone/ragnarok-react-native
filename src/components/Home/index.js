@@ -98,8 +98,6 @@ const Home = ({ navigation, list, races }) => {
   });
 
   const useItems = subItems || newList;
-  // console.log(subItems ? subItems.length : 'Aff');
-
   function onClickCategory(action) {
     if (typeof action === 'function') {
       const content = action();

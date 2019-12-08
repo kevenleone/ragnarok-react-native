@@ -24,7 +24,7 @@ import MonsterDrops from '../MonsterDrops';
 const MonsterInfo = ({ navigation, monster }) => {
   const { goBack } = navigation;
   const {
-    kName, race, id, image, color,
+    kName, race, id, image, color, mobplace,
   } = monster;
   const [selectedIndex, setIndex] = useState(2);
   const buttons = ['Stats', 'Drops', 'Location'];
@@ -83,7 +83,7 @@ const MonsterInfo = ({ navigation, monster }) => {
               <MonsterDrops />
             </Case>
             <Case condition={selectedIndex === 2}>
-              <MonsterLocation />
+              <MonsterLocation mobPlaces={mobplace} />
             </Case>
           </Switch>
         </ScrollView>

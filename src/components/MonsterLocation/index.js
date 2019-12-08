@@ -1,29 +1,27 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import {
   Container, CardList, Card, Loading, Map, MapTitle, Info,
 } from './styles';
 
-const MapLocation = () => (
+const MapLocation = ({ place }) => (
   <Card>
-    <MapTitle>pay_fild04</MapTitle>
+    <MapTitle>{place.map}</MapTitle>
     <Map
-      source={{ uri: 'http://www.ragnadb.com.br/img/maps/prontera.gif' }}
+      source={{ uri: `http://www.ragnadb.com.br/img/maps/${place.map}.gif` }}
     />
-    <Info> 10 / Minutes </Info>
+    <Info>
+      {`${place.quantity}/${place.spawn}`}
+    </Info>
   </Card>
 );
 
-const MonsterLocation = () => (
+const MonsterLocation = ({ mobPlaces = [] }) => (
   <Container>
     <CardList
       horizontal
       showsHorizontalScrollIndicator={false}
     >
-      <MapLocation />
-      <MapLocation />
-      <MapLocation />
-      <MapLocation />
+      {mobPlaces.map((place) => <MapLocation key={place.id} place={place} />)}
     </CardList>
   </Container>
 );

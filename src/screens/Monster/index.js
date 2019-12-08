@@ -8,15 +8,12 @@ const Monster = ({ navigation }) => {
   const id = Number(getParam('id'));
   return (
     <Query query={getMonsterById} variables={{ data: id }}>
-      {({ data, loading, error }) => {
-        console.log(data);
-        return (
+      {({ data, loading, error }) => (
           <MonsterInfo
             navigation={navigation}
             monster={data ? data.getMonster : {}}
           />
-        );
-      }}
+        )}
     </Query>
   );
 };
