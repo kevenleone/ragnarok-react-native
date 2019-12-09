@@ -7,6 +7,7 @@ function handleBackgroundColor({ color }) {
 
 export const Container = styled.View`
   padding: 30px;
+  flex: 1;
 `;
 
 export const Content = styled.View`
@@ -68,4 +69,16 @@ export const Touchable = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   color: #666;
   font-weight: 500;
+`;
+
+export const MonsterView = styled.View`
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+`;
+
+export const ScrollView = styled.ScrollView`
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
 `;

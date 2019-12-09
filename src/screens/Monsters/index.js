@@ -4,14 +4,9 @@ import MonsterList from '../../components/MonsterList';
 import { getMonsterFilter } from '../../graphql/gql/query/monster';
 import Page from '../../components/Page';
 
-const defaultVariables = {
-  data: {
-    Page: 3,
-  },
-};
-
 const Monsters = ({ navigation }) => {
-  const [variables, setVariables] = useState(defaultVariables);
+  const params = navigation.getParam('data', { data: { Page: 1 } });
+  const [variables, setVariables] = useState(params);
   const [monsters, setMonsters] = useState([]);
   const [firstLoad, setFirstLoad] = useState(true);
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import { View as VVV, ActivityIndicator } from 'react-native';
+import MonsterCard from '../MonsterCard';
 import {
-  List, Monster, ScrollView, Image, MonsterName, MonsterRace, Info, Title, View, IconView,
+  List, Title, View,
 } from './styles';
+
 
 const renderFooter = () => (
   <VVV style={{ marginVertical: 10 }}>
@@ -13,10 +15,6 @@ const renderFooter = () => (
 const MonsterList = ({
   list, navigation, variables, setVariables,
 }) => {
-  function onSelectMonster(id) {
-    navigation.navigate('MonsterScreen', { id });
-  }
-
   function loadMore() {
     const { data } = variables;
     setVariables({
@@ -34,30 +32,17 @@ const MonsterList = ({
         data={list}
         keyExtractor={(data) => `${data.id}-${Math.random() * 20000}`}
         showsVerticalScrollIndicator={false}
-        onEndReachedThreshold={0.01}
+        onEndReachedThreshold={0.1}
         onEndReached={loadMore}
         numColumns={2}
         ListFooterComponent={renderFooter}
-        renderItem={({ item }) => {
-          const {
-            id, race, kName, color, image: { animated },
-          } = item;
-          return (
-            <Monster
-              key={id}
-              color={color}
-              onPress={() => onSelectMonster(id)}
-            >
-              <Info>
-                <MonsterName>{kName}</MonsterName>
-                <MonsterRace>{race}</MonsterRace>
-              </Info>
-              <IconView>
-                <Image source={{ uri: animated }} />
-              </IconView>
-            </Monster>
-          );
-        }}
+        renderItem={({ item }) => (
+          <MonsterCard
+            navigation={navigation}
+            monster={item}
+            origin="list"
+          />
+        )}
       />
     </View>
   );

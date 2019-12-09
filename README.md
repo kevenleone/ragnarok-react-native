@@ -1,8 +1,7 @@
-
-<center>
-    <img src="assets/images/1751.gif">
-</center>
-
+<h1 align="center">
+    <img src="assets/images/1751.gif"/>
+    <br/>
+</h1>
 
 <p align="center">
   <a href="http://makeapullrequest.com">
