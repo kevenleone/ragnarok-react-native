@@ -5,7 +5,6 @@ import {
   List, Title, View,
 } from './styles';
 
-
 const renderFooter = () => (
   <VVV style={{ marginVertical: 10 }}>
     <ActivityIndicator />
@@ -17,12 +16,10 @@ const MonsterList = ({
 }) => {
   function loadMore() {
     const { data } = variables;
-    setVariables({
-      data: {
-        ...data,
-        Page: data.Page + 1,
-      },
-    });
+    const content = {
+      data: { ...data, Page: data.Page + 1 },
+    };
+    setVariables(content);
   }
 
   return (

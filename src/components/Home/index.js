@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import {
-  If, Then, Else, When,
-} from 'react-if';
-import PropTypes from 'prop-types';
+import { If, Then, Else } from 'react-if';
 import { useLazyQuery } from 'react-apollo';
-import {
-  Container, Content, Title, Input, CardList, Card, Text, Icon, IconView, Touchable, ButtonText, MonsterView, ScrollView,
-} from './styles';
+import PropTypes from 'prop-types';
 import { getMonsterFilter } from '../../graphql/gql/query/monster';
-import MonsterCard from '../MonsterCard';
+import SearchList from './SearchList';
+import Categories from './Categories';
+import {
+  Container, Content, Title, Input,
+} from './styles';
 
 const Home = ({ navigation, list, races }) => {
   const [subItems, setSubItems] = useState(null);
@@ -36,17 +35,6 @@ const Home = ({ navigation, list, races }) => {
 
   const useItems = subItems || newList;
 
-  function onClickCategory(action, { page, params }) {
-    if (typeof action === 'function') {
-      const content = action();
-      navigation.navigate(content.page);
-    } else if (page !== undefined) {
-      navigation.navigate(page, params);
-    } else {
-      setSubItems(action);
-    }
-  }
-
   return (
     <Container>
       <Content>
@@ -63,45 +51,15 @@ const Home = ({ navigation, list, races }) => {
 
         <If condition={!search}>
           <Then>
-            <When condition={subItems !== null}>
-              <Touchable onPress={() => setSubItems(null)}>
-                <ButtonText color="#999">Back to Main List</ButtonText>
-              </Touchable>
-            </When>
-
-            <CardList>
-              { useItems.map(({
-                page, params, action, title, uri, color,
-              }) => (
-                <Card
-                  key={title}
-                  color={color}
-                  onPress={() => onClickCategory(action, { params, page })}
-                >
-                  <Text>{title}</Text>
-                  <IconView>
-                    <Icon
-                      source={{ uri }}
-                    />
-                  </IconView>
-                </Card>
-              ))}
-            </CardList>
+            <Categories
+              itens={useItems}
+              subItems={subItems}
+              setSubItems={setSubItems}
+              navigation={navigation}
+            />
           </Then>
           <Else>
-            <ScrollView
-              horizontal
-            >
-              {
-            monsters && monsters.length ? monsters.map((monster) => (
-              <MonsterView
-                key={monster.id}
-              >
-                <MonsterCard navigation={navigation} monster={monster} />
-              </MonsterView>
-            )) : null
-        }
-            </ScrollView>
+            <SearchList monsters={monsters} navigation={navigation} />
           </Else>
         </If>
       </Content>
