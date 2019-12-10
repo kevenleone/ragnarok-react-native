@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Monster, Image, MonsterName, MonsterRace, Info, IconView,
 } from './styles';
@@ -8,8 +9,8 @@ const MonsterCard = ({ origin, navigation, monster }) => {
     color, id, kName, race, image: { animated },
   } = monster;
 
-  function onSelectMonster(id) {
-    navigation.navigate('MonsterScreen', { id });
+  function onSelectMonster(monsterID) {
+    navigation.navigate('MonsterScreen', { id: monsterID });
   }
 
   return (
@@ -27,6 +28,14 @@ const MonsterCard = ({ origin, navigation, monster }) => {
       </IconView>
     </Monster>
   );
+};
+
+MonsterCard.propTypes = {
+  origin: PropTypes.string.isRequired,
+  monster: PropTypes.objectOf(PropTypes.object).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default MonsterCard;

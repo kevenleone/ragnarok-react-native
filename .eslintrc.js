@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true
   },
   extends: [
     'airbnb',
@@ -22,7 +23,9 @@ module.exports = {
     "jsx-a11y"
   ],
   rules: {
-    "react/jsx-filename-extension": [
+    'jest/prefer-inline-snapshots': ['off'],
+    "react/jsx-filename-extension":
+     [
       "error",
       {
         "extensions": [".js", ".jsx"]

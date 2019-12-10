@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Switch, Case } from 'react-if';
+import PropTypes from 'prop-types';
 import {
   Container,
   MonsterTitle,
@@ -90,6 +91,14 @@ const MonsterInfo = ({ navigation, monster }) => {
       </MonsterDetail>
     </Container>
   );
+};
+
+MonsterInfo.propTypes = {
+  monster: PropTypes.objectOf(PropTypes.object).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default MonsterInfo;

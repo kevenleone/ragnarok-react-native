@@ -52,7 +52,7 @@ const Home = ({ navigation, list, races }) => {
         <If condition={!search}>
           <Then>
             <Categories
-              itens={useItems}
+              items={useItems}
               subItems={subItems}
               setSubItems={setSubItems}
               navigation={navigation}
@@ -68,7 +68,9 @@ const Home = ({ navigation, list, races }) => {
 };
 
 Home.propTypes = {
-  // navigation: PropTypes.objectOf(PropTypes.object, PropTypes.func).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
   list: PropTypes.arrayOf(PropTypes.object),
   races: PropTypes.arrayOf(PropTypes.object),
 };

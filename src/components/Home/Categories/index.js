@@ -1,12 +1,13 @@
 import React from 'react';
 import { When } from 'react-if';
+import PropTypes from 'prop-types';
 
 import {
   CardList, Card, Text, Icon, IconView, Touchable, ButtonText,
 } from './styles';
 
-const index = ({
-  itens = [], subItems, navigation, setSubItems,
+const Categories = ({
+  items, subItems, navigation, setSubItems,
 }) => {
   function onClickCategory(action, { page, params }) {
     if (typeof action === 'function') {
@@ -28,7 +29,7 @@ const index = ({
       </When>
 
       <CardList>
-        { itens.map(({
+        { items.map(({
           page, params, action, title, uri, color,
         }) => (
           <Card
@@ -38,9 +39,7 @@ const index = ({
           >
             <Text>{title}</Text>
             <IconView>
-              <Icon
-                source={{ uri }}
-              />
+              <Icon source={{ uri }} />
             </IconView>
           </Card>
         ))}
@@ -49,4 +48,18 @@ const index = ({
   );
 };
 
-export default index;
+Categories.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+  subItems: PropTypes.oneOfType([PropTypes.array]),
+  setSubItems: PropTypes.func.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+Categories.defaultProps = {
+  items: [],
+  subItems: null,
+};
+
+export default Categories;

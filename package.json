@@ -10,7 +10,7 @@
     "storybook": "start-storybook"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo-enzyme"
   },
   "dependencies": {
     "@expo/samples": "~3.0.3",
@@ -47,6 +47,9 @@
     "@storybook/react-native-server": "^5.2.8",
     "babel-loader": "^8.0.6",
     "babel-preset-expo": "^7.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -54,8 +57,9 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest-expo": "^35.0.0",
-    "reactotron-react-native": "^4.0.2",
-    "reactotron-react-js": "^3.3.7"
+    "jest-expo-enzyme": "^0.0.1",
+    "reactotron-react-js": "^3.3.7",
+    "reactotron-react-native": "^4.0.2"
   },
   "private": true
 }
