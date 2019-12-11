@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import Home from '../../components/Home';
-import race from '../../graphql/gql/query/race';
-import Page from '../../components/Page';
 import { HomeCategories } from '../../constants/defaults';
-
+import getRacesQuery from '../../graphql/gql/query/race';
+import Home from '../../components/Home';
+import Page from '../../components/Page';
 
 function normalizeRace(races) {
   if (races && races.getRaces.length) {
@@ -12,14 +12,15 @@ function normalizeRace(races) {
       title: race.race,
       id: race.id,
       color: race.background,
-      uri: race && race.representationMonster ? race.representationMonster.image.animated : null,
+      uri: race && race.representationMonster
+        ? race.representationMonster.image.animated : null,
     }));
   }
   return [];
 }
 
 const HomeScreen = ({ navigation }) => (
-  <Query query={race}>
+  <Query query={getRacesQuery}>
     {({ data, loading }) => {
       const races = normalizeRace(data);
       return (
@@ -38,6 +39,12 @@ const HomeScreen = ({ navigation }) => (
 
 HomeScreen.navigationOptions = {
   header: null,
+};
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default HomeScreen;

@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
 
 function handlePercentage({ percent }) {
-  return `width: ${percent || 1}%`;
+  return `width: ${percent}%`;
 }
 
 function handleColor({ color }) {
-  return `background-color: ${color || '#1A5276'}`;
+  return `background-color: ${color}`;
 }
 
 export const Border = styled.View`

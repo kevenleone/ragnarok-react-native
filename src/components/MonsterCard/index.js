@@ -32,7 +32,13 @@ const MonsterCard = ({ origin, navigation, monster }) => {
 
 MonsterCard.propTypes = {
   origin: PropTypes.string.isRequired,
-  monster: PropTypes.objectOf(PropTypes.object).isRequired,
+  monster: PropTypes.shape({
+    color: PropTypes.string,
+    id: PropTypes.number,
+    kName: PropTypes.string,
+    race: PropTypes.string,
+    image: PropTypes.object,
+  }).isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

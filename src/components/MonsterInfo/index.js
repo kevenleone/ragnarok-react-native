@@ -23,12 +23,12 @@ import MonsterLocation from '../MonsterLocation';
 import MonsterDrops from '../MonsterDrops';
 
 const MonsterInfo = ({ navigation, monster }) => {
+  const buttons = ['Stats', 'Drops', 'Location'];
+  const [selectedIndex, setIndex] = useState(0);
   const { goBack } = navigation;
   const {
     kName, race, id, image, color, mobplace,
   } = monster;
-  const [selectedIndex, setIndex] = useState(0);
-  const buttons = ['Stats', 'Drops', 'Location'];
   return (
     <Container>
       <Monster color={color}>
@@ -54,8 +54,7 @@ const MonsterInfo = ({ navigation, monster }) => {
         <Row>
           <MonsterTitle>{kName}</MonsterTitle>
           <MonsterTitle style={{ marginTop: 9, fontSize: 18, marginLeft: 'auto' }}>
-            #
-            {id}
+            {`#${id}`}
           </MonsterTitle>
         </Row>
         <Badge>
@@ -94,7 +93,14 @@ const MonsterInfo = ({ navigation, monster }) => {
 };
 
 MonsterInfo.propTypes = {
-  monster: PropTypes.objectOf(PropTypes.object).isRequired,
+  monster: PropTypes.shape({
+    color: PropTypes.string,
+    id: PropTypes.number,
+    kName: PropTypes.string,
+    race: PropTypes.string,
+    image: PropTypes.object,
+    mobplace: PropTypes.array,
+  }).isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
     goBack: PropTypes.func.isRequired,

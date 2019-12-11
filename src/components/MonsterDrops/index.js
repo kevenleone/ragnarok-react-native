@@ -17,8 +17,7 @@ const list = [
 
 const index = () => (
   <View>
-    {
-    list.map((item) => (
+    { list.map((item) => (
       <ListItem
         key={item.id}
         title={item.title}
@@ -26,8 +25,7 @@ const index = () => (
         bottomDivider
         chevron
       />
-    ))
-  }
+    ))}
   </View>
 );
 

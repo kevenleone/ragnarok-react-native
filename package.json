@@ -7,6 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
+    "lint": "eslint .",
     "storybook": "start-storybook"
   },
   "jest": {
@@ -36,7 +37,9 @@
     "react-native-gesture-handler": "~1.3.0",
     "react-native-web": "^0.11.7",
     "react-navigation": "^3.12.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "reactotron-react-js": "^3.3.7",
+    "reactotron-react-native": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
@@ -57,9 +60,7 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest-expo": "^35.0.0",
-    "jest-expo-enzyme": "^0.0.1",
-    "reactotron-react-js": "^3.3.7",
-    "reactotron-react-native": "^4.0.2"
+    "jest-expo-enzyme": "^0.0.1"
   },
   "private": true
 }

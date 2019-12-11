@@ -24,6 +24,7 @@ const Page = ({ loading, children }) => (
 
 Page.propTypes = {
   loading: PropTypes.bool,
+  children: PropTypes.element.isRequired,
 };
 
 Page.defaultProps = {

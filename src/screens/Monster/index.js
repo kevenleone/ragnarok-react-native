@@ -10,7 +10,7 @@ const Monster = ({ navigation }) => {
   const id = Number(getParam('id'));
   return (
     <Query query={getMonsterById} variables={{ data: id }}>
-      {({ data, loading, error }) => (
+      {({ data, loading }) => (
         <Page loading={loading}>
           <MonsterInfo
             navigation={navigation}
@@ -27,7 +27,10 @@ Monster.navigationOptions = {
 };
 
 Monster.propTypes = {
-  // navigation: PropTypes.objectOf(PropTypes.object).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default Monster;

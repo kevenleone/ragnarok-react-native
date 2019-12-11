@@ -1,15 +1,8 @@
 import React from 'react';
-import { View as VVV, ActivityIndicator } from 'react-native';
+import PropTypes from 'prop-types';
 import MonsterCard from '../MonsterCard';
-import {
-  List, Title, View,
-} from './styles';
-
-const renderFooter = () => (
-  <VVV style={{ marginVertical: 10 }}>
-    <ActivityIndicator />
-  </VVV>
-);
+import ListFooter from '../ListFooter';
+import { List, Title, View } from './styles';
 
 const MonsterList = ({
   list, navigation, variables, setVariables,
@@ -32,7 +25,7 @@ const MonsterList = ({
         onEndReachedThreshold={0.1}
         onEndReached={loadMore}
         numColumns={2}
-        ListFooterComponent={renderFooter}
+        ListFooterComponent={ListFooter}
         renderItem={({ item }) => (
           <MonsterCard
             navigation={navigation}
@@ -43,6 +36,20 @@ const MonsterList = ({
       />
     </View>
   );
+};
+
+MonsterList.propTypes = {
+  variables: PropTypes.objectOf(PropTypes.object),
+  setVariables: PropTypes.func.isRequired,
+  list: PropTypes.arrayOf(PropTypes.object),
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+MonsterList.defaultProps = {
+  list: [],
+  variables: { data: {} },
 };
 
 export default MonsterList;
