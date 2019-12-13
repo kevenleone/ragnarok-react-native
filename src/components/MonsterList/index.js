@@ -1,8 +1,38 @@
 import React from 'react';
+import { FloatingAction } from 'react-native-floating-action';
 import PropTypes from 'prop-types';
 import MonsterCard from '../MonsterCard';
 import ListFooter from '../ListFooter';
-import { List, Title, View } from './styles';
+import {
+  List, Title, View, Touchable, Icon,
+} from './styles';
+
+const getIcon = ({ icon, color = 'white' }) => (
+  <Icon
+    name={icon}
+    color={color}
+    size={25}
+  />
+);
+
+const actions = [
+  {
+    text: 'Favourite Monsters',
+    icon: getIcon({ icon: 'ios-heart' }),
+    name: 'favorite',
+  },
+  {
+    text: 'Monsters by Race',
+    icon: getIcon({ icon: 'ios-keypad' }),
+    name: 'monster_by_race',
+  },
+  {
+    text: 'Search Monster',
+    icon: getIcon({ icon: 'ios-search' }),
+    name: 'search_monster',
+  },
+];
+
 
 const MonsterList = ({
   list, navigation, variables, setVariables,
@@ -17,6 +47,10 @@ const MonsterList = ({
 
   return (
     <View>
+      <Touchable
+        onPress={() => navigation.goBack()}
+        style={{ marginRight: 'auto' }}
+      />
       <Title>Monsters</Title>
       <List
         data={list}
@@ -34,6 +68,13 @@ const MonsterList = ({
           />
         )}
       />
+      <FloatingAction
+        actions={actions}
+        floatingIcon={getIcon({ icon: 'ios-menu' })}
+        onPressItem={(name) => {
+          console.log(`selected button: ${name}`);
+        }}
+      />
     </View>
   );
 };
@@ -44,6 +85,7 @@ MonsterList.propTypes = {
   list: PropTypes.arrayOf(PropTypes.object),
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
   }).isRequired,
 };
 
