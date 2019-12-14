@@ -8,13 +8,17 @@ import Page from '../../components/Page';
 
 const Monsters = ({ navigation }) => {
   const params = navigation.getParam('data', { data: { Page: 1 } });
+  const [resetList, setResetList] = useState(false);
   const [variables, setVariables] = useState(params);
   const [monsters, setMonsters] = useState([]);
   const [firstLoad, setFirstLoad] = useState(true);
 
   function onCompleted(data) {
-    if (data) setMonsters([...monsters, ...data.getMonsterFilter]);
+    if (data) {
+      setMonsters(resetList ? data.getMonsterFilter : [...monsters, ...data.getMonsterFilter]);
+    }
     if (firstLoad) setFirstLoad(false);
+    setResetList(false);
   }
 
   return (
@@ -26,6 +30,7 @@ const Monsters = ({ navigation }) => {
       {({ loading }) => (
         <Page loading={loading && firstLoad}>
           <MonsterList
+            setResetList={setResetList}
             setVariables={setVariables}
             navigation={navigation}
             variables={variables}

@@ -31,7 +31,7 @@ const MonsterCard = ({ origin, navigation, monster }) => {
 };
 
 MonsterCard.propTypes = {
-  origin: PropTypes.string.isRequired,
+  origin: PropTypes.string,
   monster: PropTypes.shape({
     color: PropTypes.string,
     id: PropTypes.number,
@@ -42,6 +42,10 @@ MonsterCard.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+};
+
+MonsterCard.defaultProps = {
+  origin: null,
 };
 
 export default MonsterCard;

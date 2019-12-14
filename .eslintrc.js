@@ -23,8 +23,10 @@ module.exports = {
     "jsx-a11y"
   ],
   rules: {
+    'react/no-array-index-key': ['off'],
+    'react/jsx-props-no-spreading': ['off'],
     'jest/prefer-inline-snapshots': ['off'],
-    "react/jsx-filename-extension":
+    'react/jsx-filename-extension':
      [
       "error",
       {

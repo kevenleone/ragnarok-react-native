@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FloatingAction } from 'react-native-floating-action';
+import {
+  When, Switch, Case,
+} from 'react-if';
 import PropTypes from 'prop-types';
 import MonsterCard from '../MonsterCard';
 import ListFooter from '../ListFooter';
 import {
   List, Title, View, Touchable, Icon,
 } from './styles';
+import Race from '../Monster/Filter/Race';
 
 const getIcon = ({ icon, color = 'white' }) => (
   <Icon
@@ -24,7 +28,7 @@ const actions = [
   {
     text: 'Monsters by Race',
     icon: getIcon({ icon: 'ios-keypad' }),
-    name: 'monster_by_race',
+    name: 'list_race',
   },
   {
     text: 'Search Monster',
@@ -35,14 +39,21 @@ const actions = [
 
 
 const MonsterList = ({
-  list, navigation, variables, setVariables,
+  list, navigation, variables, setVariables, setResetList,
 }) => {
+  const { data } = variables;
+  const [menuOption, setMenuOption] = useState(null);
   function loadMore() {
-    const { data } = variables;
     const content = {
       data: { ...data, Page: data.Page + 1 },
     };
     setVariables(content);
+  }
+
+  function onPressRace({ id }) {
+    setResetList(true);
+    setVariables({ data: { Page: 1, Race: id } });
+    setTimeout(() => setMenuOption(null), 1000); // Wait the Component Unmount
   }
 
   return (
@@ -50,11 +61,13 @@ const MonsterList = ({
       <Touchable
         onPress={() => navigation.goBack()}
         style={{ marginRight: 'auto' }}
-      />
+      >
+        {getIcon({ icon: 'ios-arrow-back', color: 'black' })}
+      </Touchable>
       <Title>Monsters</Title>
       <List
         data={list}
-        keyExtractor={(data) => `${data.id}-${Math.random() * 20000}`}
+        keyExtractor={(data) => data.id}
         showsVerticalScrollIndicator={false}
         onEndReachedThreshold={0.1}
         onEndReached={loadMore}
@@ -71,15 +84,24 @@ const MonsterList = ({
       <FloatingAction
         actions={actions}
         floatingIcon={getIcon({ icon: 'ios-menu' })}
-        onPressItem={(name) => {
-          console.log(`selected button: ${name}`);
-        }}
+        onPressItem={(name) => setMenuOption(name)}
       />
+      <When condition={!!menuOption}>
+        <Switch>
+          <Case condition={menuOption === 'list_race'}>
+            <Race
+              onPressRace={onPressRace}
+              setMenuOption={setMenuOption}
+            />
+          </Case>
+        </Switch>
+      </When>
     </View>
   );
 };
 
 MonsterList.propTypes = {
+  setResetList: PropTypes.func.isRequired,
   variables: PropTypes.objectOf(PropTypes.object),
   setVariables: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.object),

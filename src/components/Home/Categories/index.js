@@ -1,15 +1,15 @@
 import React from 'react';
 import { When } from 'react-if';
 import PropTypes from 'prop-types';
-
 import {
-  CardList, Card, Text, Icon, IconView, Touchable, ButtonText,
+  CardList, Touchable, ButtonText,
 } from './styles';
+import MenuCategory from '../../MenuCategory';
 
 const Categories = ({
   items, subItems, navigation, setSubItems,
 }) => {
-  function onClickCategory(action, { page, params }) {
+  function onClickCategory({ action, page, params }) {
     if (typeof action === 'function') {
       const content = action();
       navigation.navigate(content.page);
@@ -29,19 +29,12 @@ const Categories = ({
       </When>
 
       <CardList>
-        { items.map(({
-          page, params, action, title, uri, color,
-        }) => (
-          <Card
-            key={title}
-            color={color}
-            onPress={() => onClickCategory(action, { params, page })}
-          >
-            <Text>{title}</Text>
-            <IconView>
-              <Icon source={{ uri }} />
-            </IconView>
-          </Card>
+        {items.map((item, index) => (
+          <MenuCategory
+            onPress={onClickCategory}
+            key={index}
+            {...item}
+          />
         ))}
       </CardList>
     </>
