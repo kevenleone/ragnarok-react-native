@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { ItemFragment } from './item';
 
 const status = 'HP, SP, EXP, JEXP, ATK1, ATK2, DEF, MDEF, STR, AGI, VIT, INT, DEX, LUK';
 
@@ -33,29 +34,33 @@ export const getMonsterFilter = gql`
 export const getMonsterById = gql`
   query getMonster($data: Float!) {
         getMonster(id: $data) {
-        id
-        kName
-        iName
-        race
-        image {
-          animated
-          static
-        }
-        mobplace {
           id
-          map
-          spawn
-          quantity
+          kName
+          iName
+          race
+          monsterDrops {
+            ...ItemFragment
+          }
+          image {
+            animated
+            static
+          }
+          mobplace {
+            id
+            map
+            spawn
+            quantity
+          }
+          statusReference {
+            ...StatusReference
+          }
+          color
+          ...MonsterStatus
         }
-        statusReference {
-          ...StatusReference
-        }
-        color
-        ...MonsterStatus
       }
-    }
-    ${MonsterStatus}
-    ${StatusReference}
+      ${MonsterStatus}
+      ${StatusReference}
+      ${ItemFragment}
 `;
 
 // # ${MonsterStatusAbc}

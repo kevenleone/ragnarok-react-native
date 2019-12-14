@@ -1,26 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { ListItem } from './styles';
 
-const list = [
-  {
-    id: 1,
-    title: ' Carta Valkyrie Randgris',
-    icon: 'http://www.ragnadb.com.br/img/small/carta.gif',
-  },
-  {
-    id: 2,
-    title: 'Manto das Valquírias [1]',
-    icon: 'http://www.ragnadb.com.br/img/item-small/2524/mantodasvalquirias1.gif',
-  },
-];
-
-const index = () => (
+const MonsterDrops = ({ monsterDrops }) => (
   <View>
-    { list.map((item) => (
+    { monsterDrops.map((item) => (
       <ListItem
         key={item.id}
-        title={item.title}
+        title={item.name_japanese}
         leftAvatar={{ source: { uri: item.icon } }}
         bottomDivider
         chevron
@@ -29,4 +17,12 @@ const index = () => (
   </View>
 );
 
-export default index;
+MonsterDrops.propTypes = {
+  monsterDrops: PropTypes.arrayOf(PropTypes.object),
+};
+
+MonsterDrops.defaultProps = {
+  monsterDrops: [],
+};
+
+export default MonsterDrops;

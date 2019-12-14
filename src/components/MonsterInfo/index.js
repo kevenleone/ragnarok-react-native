@@ -27,7 +27,7 @@ const MonsterInfo = ({ navigation, monster }) => {
   const [selectedIndex, setIndex] = useState(0);
   const { goBack } = navigation;
   const {
-    kName, race, id, image, color, mobplace,
+    kName, race, id, image, color, mobplace, monsterDrops,
   } = monster;
   return (
     <Container>
@@ -80,7 +80,7 @@ const MonsterInfo = ({ navigation, monster }) => {
               <MonsterStats monster={monster} />
             </Case>
             <Case condition={selectedIndex === 1}>
-              <MonsterDrops />
+              <MonsterDrops monsterDrops={monsterDrops} />
             </Case>
             <Case condition={selectedIndex === 2}>
               <MonsterLocation mobPlaces={mobplace} />
@@ -100,6 +100,7 @@ MonsterInfo.propTypes = {
     race: PropTypes.string,
     image: PropTypes.object,
     mobplace: PropTypes.array,
+    monsterDrops: PropTypes.array,
   }).isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
