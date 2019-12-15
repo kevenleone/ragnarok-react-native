@@ -18,7 +18,10 @@ export const HomeCategories = [
     title: 'Maps',
     uri: 'http://www.ragnadb.com.br/img/maps/prontera.gif',
     action() {
-      alert('Abrir página Maps');
+      return {
+        page: 'MapsScreen',
+        payload: '',
+      };
     },
   },
   {
