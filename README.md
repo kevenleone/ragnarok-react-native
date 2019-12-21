@@ -18,8 +18,7 @@ Ragnarok database built with React Native
 
 ## Motivation
 
-Ragnarok was one of my first MMORPG, i played a lot when i was kid, my love for this game started on 2006 and played until 2011, and i still remember many things in this games, like monsters, maps, items. The golden age of this game i couldn't even imagine that i would be a programmer someday, and now i'm here, with this project for Ragnarok not be forgotten.
-
+Ragnarok was one of my first MMORPG, i played a lot when i was kid, my love for this game started on 2006 and played until 2011, and i still remember many things in this games, like monsters, maps, items. The golden age of this game i couldn't even imagine that i would be a programmer someday, and now i'm here,with this project for Ragnarok not be forgotten.
 
 ## Download
 
@@ -44,9 +43,9 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 
 - [x] Home
 - [x] Monster List
-- [ ] Monster List - Per Race
+- [x] Monster List - Per Race
 - [x] Monster Info - Status
-- [ ] Monster Info - Drops
+- [x] Monster Info - Drops
 - [x] Monster Info - Location
 - [ ] Maps
 - [ ] Monster by Map
@@ -58,7 +57,7 @@ Go to the [releases page](https://github.com/scitbiz/flutter_pokedex/releases) t
 - [ragnadb](https://ragnadb.com) - The best ragnarok database online
 
 ## :handshake: **Contributing**
-If you liked the the project and want to cooperate feel free to fork this repository and send Pull Requests.
+If you liked the project and want to cooperate feel free to fork this repository and send Pull Requests.
 
 All kinds of contributions are very welcome and appreciated
 
