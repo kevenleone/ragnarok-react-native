@@ -18,7 +18,6 @@ export const Map = styled.Image`
 `;
 
 export const MonsterView = styled.View`
-  height: 300px;
 `;
 
 export const MapTitle = styled.Text`
@@ -35,7 +34,6 @@ export const View = styled.View`
 
 export const Container = styled.ScrollView`
   padding: 5px;
-  height: 100%;
 `;
 
 export const Text = styled.Text`
@@ -44,9 +42,3 @@ export const Text = styled.Text`
 `;
 
 export const ListItem = styled(Item)``;
-
-export const MapContainer = styled.ScrollView`
-  margin-top: 10px;
-  border: 1px #dadada;
-  background-color: #fff;
-`;

@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
-import { ButtonGroup, Header } from 'react-native-elements';
+import { Header } from 'react-native-elements';
 import { Query } from 'react-apollo';
-import Carousel from '../../components/Map/Carousel';
 import MapQuery from '../../graphql/gql/query/map';
-
-const buttons = ['List View', 'Detailed View'];
+import List from '../../components/Map/List';
 
 const MapScreen = () => {
   const [variables, setVariables] = useState({ data: { Page: 1 } });
-  const [index, setIndex] = useState(0);
   return (
     <Query query={MapQuery} variables={variables}>
       {({ data, loading, error }) => (
@@ -21,13 +17,11 @@ const MapScreen = () => {
             centerComponent={{ text: 'Ragnarok Maps', style: { color: '#fff' } }}
             rightComponent={{ icon: 'home', color: '#fff' }}
           />
-          <ButtonGroup
-            onPress={setIndex}
-            selectedIndex={index}
-            buttons={buttons}
-            containerStyle={{ height: 30 }}
+          <List
+            variables={variables}
+            setVariables={setVariables}
+            maps={data ? data.getMonsterPlaceFilter : []}
           />
-          <Carousel data={data ? data.getMonsterPlaceFilter : []} />
         </>
       )}
     </Query>

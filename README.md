@@ -12,9 +12,7 @@
   </a>
 </p>
 
-<center>
-Ragnarok database built with React Native
-</center>
+<p align="center">Ragnarok database built with React Native</p>
 
 ## Motivation
 

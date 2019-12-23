@@ -2,18 +2,28 @@ import gql from 'graphql-tag';
 
 export default gql`
   query getMonsterPlaceFilter($data: MonsterPlaceFilter!) {
-      getMonsterPlaceFilter(data: $data) {
+    getMonsterPlaceFilter(data: $data) {
+      id
+      map
+      img
+    }
+  }
+`;
+
+export const getMapQuery = gql`
+query getMap($map: String!) {
+    getMap(map: $map) {
       id
       map
       img
       monsters {
         id
-        race
         kName
+        spawn
         image {
           animated
         }
       }
     }
   }
-  `;
+`;

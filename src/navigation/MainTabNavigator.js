@@ -5,6 +5,7 @@ import HomeScreen from '../screens/Home';
 import MonstersScreen from '../screens/Monsters';
 import MonsterScreen from '../screens/Monster';
 import MapsScreen from '../screens/Maps';
+import MapScreen from '../screens/Map';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -13,6 +14,7 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
+    MapScreen,
     MapsScreen,
     Home: HomeScreen,
     MonstersScreen,
