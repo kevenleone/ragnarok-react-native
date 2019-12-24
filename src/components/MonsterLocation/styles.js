@@ -6,7 +6,7 @@ export const Container = styled.View`
   margin-top: 10px;
 `;
 
-export const Card = styled.View`
+export const Card = styled.TouchableOpacity`
   margin-horizontal: 10px;
   height: 350px;
   width: 250px;

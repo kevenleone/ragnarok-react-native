@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Container, List, MapView, Image, Map,
 } from './styles';
@@ -7,8 +8,8 @@ import ListFooter from '../../ListFooter';
 const MapList = ({
   navigation, maps, variables, setVariables,
 }) => {
-  const { data } = variables;
   function loadMore() {
+    const { data } = variables;
     const content = {
       data: { ...data, Page: data.Page + 1 },
     };
@@ -18,7 +19,7 @@ const MapList = ({
     <Container>
       <List
         data={maps}
-        keyExtractor={(data) => data.id}
+        keyExtractor={(m) => m.id}
         showsVerticalScrollIndicator={false}
         onEndReachedThreshold={0.1}
         onEndReached={loadMore}
@@ -33,6 +34,21 @@ const MapList = ({
       />
     </Container>
   );
+};
+
+MapList.propTypes = {
+  maps: PropTypes.arrayOf(PropTypes.object),
+  variables: PropTypes.objectOf(PropTypes.object),
+  setVariables: PropTypes.func.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+MapList.defaultProps = {
+  maps: [],
+  variables: {},
 };
 
 export default MapList;

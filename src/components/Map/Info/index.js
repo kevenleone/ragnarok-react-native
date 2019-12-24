@@ -1,32 +1,36 @@
 import React from 'react';
 import {
-  Container, View, Map, ImageContainer, MonsterView, ListItem,
+  Container, View, Map, ImageContainer, ListItem, MonsterImageContainer,
 } from './styles';
 
-const MapCarousel = ({ mapData }) => {
-  const { map, img, monsters = [] } = mapData;
+const MonsterInfo = ({ mapData, navigation }) => {
+  const { img, monsters = [] } = mapData;
   return (
-    <Container>
+    <Container showsVerticalScrollIndicator={false}>
       <View>
         <ImageContainer>
           <Map source={{ uri: img }} />
         </ImageContainer>
       </View>
-      <MonsterView>
-        { monsters.map((monster) => (
-          <ListItem
-            key={monster.id}
-            title={monster.kName}
-            titleStyle={{ color: '#333', fontWeight: '500' }}
-            leftAvatar={{ rounded: false, source: { uri: monster.image.animated } }}
-            badge={{ value: monster.spawn, textStyle: { fontSize: 15 } }}
-            bottomDivider
-            chevron
-          />
-        ))}
-      </MonsterView>
+      { monsters.map((monster) => (
+        <ListItem
+          key={monster.id}
+          title={monster.kName}
+          subtitle={monster.spawn}
+          titleStyle={{ color: '#333', fontWeight: '500' }}
+          containerStyle={{ height: 100 }}
+          onPress={() => navigation.navigate('MonsterScreen', { id: monster.id })}
+          leftElement={(
+            <MonsterImageContainer>
+              <Map width={100} height={50} source={{ uri: monster.image.animated }} />
+            </MonsterImageContainer>
+            )}
+          bottomDivider
+          chevron
+        />
+      ))}
     </Container>
   );
 };
 
-export default MapCarousel;
+export default MonsterInfo;

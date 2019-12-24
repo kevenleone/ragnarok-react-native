@@ -83,7 +83,7 @@ const MonsterInfo = ({ navigation, monster }) => {
               <MonsterDrops monsterDrops={monsterDrops} />
             </Case>
             <Case condition={selectedIndex === 2}>
-              <MonsterLocation mobPlaces={mobplace} />
+              <MonsterLocation navigation={navigation} mobPlaces={mobplace} />
             </Case>
           </Switch>
         </ScrollView>

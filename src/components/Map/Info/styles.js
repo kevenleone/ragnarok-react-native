@@ -12,12 +12,9 @@ export const ImageContainer = styled.View`
 `;
 
 export const Map = styled.Image`
-  width: 100%;
-  height: 100%;
+  width: ${(props) => props.width || 100}%;
+  height: ${(props) => props.height || 100}%;
   resize-mode: stretch;
-`;
-
-export const MonsterView = styled.View`
 `;
 
 export const MapTitle = styled.Text`
@@ -39,6 +36,12 @@ export const Container = styled.ScrollView`
 export const Text = styled.Text`
   font-size: 18px;
   color: #333;
+`;
+
+export const MonsterImageContainer = styled.View`
+  width: 70px; 
+  height: 100px;
+  justify-content: center;
 `;
 
 export const ListItem = styled(Item)``;

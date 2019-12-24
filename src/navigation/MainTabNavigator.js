@@ -14,8 +14,8 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Maps: MapsScreen,
     Home: HomeScreen,
+    Maps: MapsScreen,
     MapScreen,
     MonstersScreen,
     MonsterScreen,
