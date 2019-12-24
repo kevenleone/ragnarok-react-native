@@ -14,18 +14,30 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    MapScreen,
-    MapsScreen,
+    Maps: MapsScreen,
     Home: HomeScreen,
+    MapScreen,
     MonstersScreen,
     MonsterScreen,
   },
+  {
+    defaultNavigationOptions: ({ navigation }) => {
+      const { routeName, params } = navigation.state;
+      const title = params && params.title ? params.title : routeName;
+      return {
+        headerTitle: title,
+        headerStyle: {
+          backgroundColor: '#1A5276',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      };
+    },
+  },
   config,
 );
-
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-};
 
 HomeStack.path = '';
 

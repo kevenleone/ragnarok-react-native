@@ -4,7 +4,9 @@ import {
 } from './styles';
 import ListFooter from '../../ListFooter';
 
-const MapList = ({ maps, variables, setVariables }) => {
+const MapList = ({
+  navigation, maps, variables, setVariables,
+}) => {
   const { data } = variables;
   function loadMore() {
     const content = {
@@ -23,7 +25,7 @@ const MapList = ({ maps, variables, setVariables }) => {
         numColumns={3}
         ListFooterComponent={ListFooter}
         renderItem={({ item }) => (
-          <MapView>
+          <MapView onPress={() => navigation.navigate('MapScreen', { title: item.map, map: item.map })}>
             <Map>{item.map}</Map>
             <Image source={{ uri: item.img }} />
           </MapView>

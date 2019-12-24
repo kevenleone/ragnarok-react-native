@@ -15,4 +15,8 @@ const MonsterScreen = ({ navigation }) => {
   );
 };
 
+MonsterScreen.navigationOptions = {
+  title: 'Map',
+};
+
 export default MonsterScreen;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, View, Map, ImageContainer, MapTitle, MonsterView, ListItem,
+  Container, View, Map, ImageContainer, MonsterView, ListItem,
 } from './styles';
 
 const MapCarousel = ({ mapData }) => {
@@ -8,7 +8,6 @@ const MapCarousel = ({ mapData }) => {
   return (
     <Container>
       <View>
-        <MapTitle>{ map }</MapTitle>
         <ImageContainer>
           <Map source={{ uri: img }} />
         </ImageContainer>
@@ -18,8 +17,9 @@ const MapCarousel = ({ mapData }) => {
           <ListItem
             key={monster.id}
             title={monster.kName}
-            subtitle={monster.spawn}
-            leftAvatar={{ source: { uri: monster.image.animated } }}
+            titleStyle={{ color: '#333', fontWeight: '500' }}
+            leftAvatar={{ rounded: false, source: { uri: monster.image.animated } }}
+            badge={{ value: monster.spawn, textStyle: { fontSize: 15 } }}
             bottomDivider
             chevron
           />

@@ -42,10 +42,6 @@ const Monsters = ({ navigation }) => {
   );
 };
 
-Monsters.navigationOptions = {
-  header: null,
-};
-
 Monsters.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,

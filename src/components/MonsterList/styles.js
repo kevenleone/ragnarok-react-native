@@ -3,7 +3,6 @@ import { FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export const View = styled.View`
-  margin-top: 60px;
   padding: 10px;
   flex: 1;
 `;

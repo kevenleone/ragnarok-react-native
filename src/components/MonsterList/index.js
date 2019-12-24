@@ -58,13 +58,6 @@ const MonsterList = ({
 
   return (
     <View>
-      <Touchable
-        onPress={() => navigation.goBack()}
-        style={{ marginRight: 'auto' }}
-      >
-        {getIcon({ icon: 'ios-arrow-back', color: 'black' })}
-      </Touchable>
-      <Title>Monsters</Title>
       <List
         data={list}
         keyExtractor={(data) => data.id}
