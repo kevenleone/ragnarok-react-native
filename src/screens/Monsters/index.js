@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { getMonsterFilter } from '../../graphql/gql/query/monster';
 import MonsterList from '../../components/MonsterList';
-import Page from '../../components/Page';
+import Page from '../../components/UI/Page';
 
 const Monsters = ({ navigation }) => {
   const params = navigation.getParam('data', { data: { Page: 1 } });

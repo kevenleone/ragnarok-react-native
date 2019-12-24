@@ -14,11 +14,11 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Ragnarok: HomeScreen,
+    MonsterScreen,
     Maps: MapsScreen,
     MapScreen,
     MonstersScreen,
-    MonsterScreen,
   },
   {
     defaultNavigationOptions: ({ navigation }) => {

@@ -3,11 +3,11 @@ import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 import MonsterInfo from '../../components/MonsterInfo';
 import { getMonsterById } from '../../graphql/gql/query/monster';
-import Page from '../../components/Page';
+import Page from '../../components/UI/Page';
 
 const Monster = ({ navigation }) => {
   const { getParam } = navigation;
-  const id = Number(getParam('id'));
+  const id = Number(getParam('id', 1028));
   return (
     <Query query={getMonsterById} variables={{ data: id }}>
       {({ data, loading }) => (

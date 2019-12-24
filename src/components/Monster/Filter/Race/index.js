@@ -6,7 +6,7 @@ import { ModalTitle, ModalContent, BottomModal } from 'react-native-modals';
 import RaceQuery from '../../../../graphql/gql/query/race';
 import MenuCategory from '../../../MenuCategory';
 import { CardList } from './styles';
-import Page from '../../../Page';
+import Page from '../../../UI/Page';
 
 const RaceCategories = ({ setMenuOption, onPressRace }) => {
   const [showModal, setShowModal] = useState(true);

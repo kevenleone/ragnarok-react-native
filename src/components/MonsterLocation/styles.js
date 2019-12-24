@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Image } from 'react-native-elements';
 import { ActivityIndicator } from 'react-native';
 
 export const Container = styled.View`
@@ -20,11 +19,6 @@ export const Card = styled.TouchableOpacity`
 export const CardList = styled.ScrollView``;
 
 export const Info = styled.Text``;
-
-export const Map = styled(Image)`
-  width: 300px;
-  height: 300px;
-`;
 
 export const MapTitle = styled.Text`
   font-size: 16px;

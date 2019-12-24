@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 import { HomeCategories } from '../../constants/defaults';
 import getRacesQuery from '../../graphql/gql/query/race';
 import Home from '../../components/Home';
-import Page from '../../components/Page';
+import Page from '../../components/UI/Page';
 
 function normalizeRace(races) {
   if (races && races.getRaces.length) {
@@ -36,10 +36,6 @@ const HomeScreen = ({ navigation }) => (
     }}
   </Query>
 );
-
-HomeScreen.navigationOptions = {
-  header: null,
-};
 
 HomeScreen.propTypes = {
   navigation: PropTypes.shape({

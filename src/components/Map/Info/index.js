@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  Container, View, Map, ImageContainer, ListItem, MonsterImageContainer,
+  Container, View, Map, ImageContainer, ListItem, MonsterImageContainer, Divider,
 } from './styles';
+import Image from '../../UI/Image';
 
 const MonsterInfo = ({ mapData, navigation }) => {
   const { img, monsters = [] } = mapData;
@@ -9,9 +11,14 @@ const MonsterInfo = ({ mapData, navigation }) => {
     <Container showsVerticalScrollIndicator={false}>
       <View>
         <ImageContainer>
-          <Map source={{ uri: img }} />
+          <Image
+            style={{ width: '100%', height: '100%' }}
+            resizeMode="stretch"
+            src={img}
+          />
         </ImageContainer>
       </View>
+      <Divider />
       { monsters.map((monster) => (
         <ListItem
           key={monster.id}
@@ -31,6 +38,13 @@ const MonsterInfo = ({ mapData, navigation }) => {
       ))}
     </Container>
   );
+};
+
+MonsterInfo.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+  mapData: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default MonsterInfo;

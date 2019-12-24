@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Container, CardList, Card, Map, MapTitle, Info,
+  Container, CardList, Card, MapTitle, Info,
 } from './styles';
+import Image from '../UI/Image';
 
 const MapLocation = ({ place, navigation }) => (
   <Card onPress={() => navigation.navigate('MapScreen', { title: place.map, map: place.map })}>
     <MapTitle>{place.map}</MapTitle>
-    <Map source={{ uri: `http://www.ragnadb.com.br/img/maps/${place.map}.gif` }} />
+    <Image style={{ width: 230, height: 300 }} src={`http://www.ragnadb.com.br/img/maps/${place.map}.gif`} />
     <Info>{`${place.quantity}/${place.spawn}`}</Info>
   </Card>
 );

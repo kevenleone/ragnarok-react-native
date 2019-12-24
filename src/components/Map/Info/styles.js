@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { ListItem as Item } from 'react-native-elements';
+import { Divider as Div, ListItem as Item } from 'react-native-elements';
 
 export const ImageContainer = styled.View`
   margin-vertical: 5px;
@@ -45,3 +45,5 @@ export const MonsterImageContainer = styled.View`
 `;
 
 export const ListItem = styled(Item)``;
+
+export const Divider = styled(Div)``;

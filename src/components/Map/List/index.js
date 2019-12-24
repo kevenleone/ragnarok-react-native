@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Container, List, MapView, Image, Map,
+  Container, List, MapView, Map,
 } from './styles';
 import ListFooter from '../../ListFooter';
+import Image from '../../UI/Image';
 
 const MapList = ({
   navigation, maps, variables, setVariables,
@@ -18,17 +19,17 @@ const MapList = ({
   return (
     <Container>
       <List
-        data={maps}
-        keyExtractor={(m) => m.id}
         showsVerticalScrollIndicator={false}
+        ListFooterComponent={ListFooter}
         onEndReachedThreshold={0.1}
+        keyExtractor={(m) => m.id}
         onEndReached={loadMore}
         numColumns={3}
-        ListFooterComponent={ListFooter}
+        data={maps}
         renderItem={({ item }) => (
           <MapView onPress={() => navigation.navigate('MapScreen', { title: item.map, map: item.map })}>
             <Map>{item.map}</Map>
-            <Image source={{ uri: item.img }} />
+            <Image src={item.img} style={{ width: 130, height: 130 }} />
           </MapView>
         )}
       />

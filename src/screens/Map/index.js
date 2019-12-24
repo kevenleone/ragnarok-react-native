@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 import MapInfo from '../../components/Map/Info';
 import { getMapQuery } from '../../graphql/gql/query/map';
-import Page from '../../components/Page';
+import Page from '../../components/UI/Page';
 
 const MonsterScreen = ({ navigation }) => {
   const map = navigation.getParam('map', 'ama_dun03');

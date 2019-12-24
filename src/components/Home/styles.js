@@ -7,7 +7,7 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.View`
-  margin-top: 20%;
+  margin-top: 1%;
 `;
 
 export const Title = styled.Text`

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Switch, Case } from 'react-if';
+
 import PropTypes from 'prop-types';
 import {
   Container,
