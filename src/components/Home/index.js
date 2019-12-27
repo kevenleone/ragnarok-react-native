@@ -28,7 +28,7 @@ const Home = ({ navigation, list, races }) => {
 
   const newList = list.map((lx) => {
     if (lx.title === 'Races') {
-      lx.action = races.map((race) => ({ ...race, page: 'MonstersScreen', params: { data: { data: { Race: race.id } } } }));
+      lx.action = races.map((race) => ({ ...race, page: 'Monsters', params: { data: { data: { Race: race.id } } } }));
     }
     return lx;
   });

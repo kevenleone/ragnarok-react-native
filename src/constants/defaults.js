@@ -5,7 +5,7 @@ export const HomeCategories = [
     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
     action() {
       return {
-        page: 'MonstersScreen',
+        page: 'Monsters',
         payload: '',
       };
     },
@@ -26,7 +26,7 @@ export const HomeCategories = [
   },
   {
     title: 'Itens',
-    uri: 'http://www.ragnadb.com.br/img/item-small/7053/cyfar.gif',
+    uri: 'http://www3.worldrag.com/database/media/item/2679.gif',
     action: [],
   },
 ];

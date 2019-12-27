@@ -1,9 +1,9 @@
-import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import { Platform } from 'react-native';
 
-import HomeScreen from '../screens/Home';
 import MonstersScreen from '../screens/Monsters';
 import MonsterScreen from '../screens/Monster';
+import HomeScreen from '../screens/Home';
 import MapsScreen from '../screens/Maps';
 import MapScreen from '../screens/Map';
 
@@ -18,7 +18,7 @@ const HomeStack = createStackNavigator(
     MonsterScreen,
     Maps: MapsScreen,
     MapScreen,
-    MonstersScreen,
+    Monsters: MonstersScreen,
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
