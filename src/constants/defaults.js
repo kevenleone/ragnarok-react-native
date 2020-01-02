@@ -29,4 +29,9 @@ export const HomeCategories = [
     uri: 'http://www3.worldrag.com/database/media/item/2679.gif',
     action: [],
   },
+  {
+    title: 'Cards',
+    uri: 'http://file5.ratemyserver.net/items/small/card.gif',
+    action: [],
+  },
 ];

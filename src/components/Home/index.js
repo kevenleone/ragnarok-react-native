@@ -19,15 +19,16 @@ const Home = ({ navigation, list, races }) => {
     monsters = monstersData.getMonsterFilter;
   }
 
-  function handleChange(text) {
-    setSearch(text);
-    if (text.length >= 3 || text === '') {
-      getMonsters({ variables: { data: { iName: text } } });
+  function handleChange(iName) {
+    setSearch(iName);
+    if (iName.length >= 3 || iName === '') {
+      getMonsters({ variables: { data: { iName } } });
     }
   }
 
   const newList = list.map((lx) => {
     if (lx.title === 'Races') {
+      // eslint-disable-next-line no-param-reassign
       lx.action = races.map((race) => ({ ...race, page: 'Monsters', params: { data: { data: { Race: race.id } } } }));
     }
     return lx;
