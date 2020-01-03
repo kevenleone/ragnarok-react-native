@@ -15,8 +15,8 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    CardScreen,
     Ragnarok: HomeScreen,
+    Cards: CardScreen,
     MonsterScreen,
     Maps: MapsScreen,
     MapScreen,

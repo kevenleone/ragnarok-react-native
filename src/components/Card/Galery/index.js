@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Container, List, MapView, Map,
-} from './styles';
 import ListFooter from '../../ListFooter';
 import Image from '../../UI/Image';
+import { Container, List, MapView } from './styles';
 
 const MapList = ({
-  navigation, monsters, variables, setVariables,
+  navigation, cards, variables, setVariables,
 }) => {
   function loadMore() {
     const { data } = variables;
@@ -20,16 +18,15 @@ const MapList = ({
     <Container>
       <List
         showsVerticalScrollIndicator={false}
-        ListFooterComponent={ListFooter}
+        ListFooterComponent={cards.length >= 50 ? ListFooter : null}
         onEndReachedThreshold={0.1}
         keyExtractor={(m) => m.id}
         onEndReached={loadMore}
-        numColumns={3}
-        data={monsters}
+        numColumns={2}
+        data={cards}
         renderItem={({ item }) => (
-          <MapView onPress={() => navigation.navigate('MonsterScreen', { id: item.ID })}>
-            <Map>{item.map}</Map>
-            <Image src={item.img} style={{ width: 130, height: 130 }} />
+          <MapView onPress={() => navigation.navigate('MonsterScreen', { id: item.id })}>
+            <Image resizeMode="stretch" src={item.image.art} style={{ width: 200, height: 200 }} />
           </MapView>
         )}
       />
@@ -38,7 +35,7 @@ const MapList = ({
 };
 
 MapList.propTypes = {
-  monsters: PropTypes.arrayOf(PropTypes.object),
+  cards: PropTypes.arrayOf(PropTypes.object),
   variables: PropTypes.objectOf(PropTypes.object),
   setVariables: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
@@ -48,7 +45,7 @@ MapList.propTypes = {
 };
 
 MapList.defaultProps = {
-  monsters: [],
+  cards: [],
   variables: {},
 };
 

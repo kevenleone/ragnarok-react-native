@@ -78,7 +78,7 @@ const MonsterInfo = ({ navigation, monster }) => {
         <ScrollView>
           <Switch>
             <Case condition={selectedIndex === 0}>
-              <MonsterStats monster={monster} />
+              <MonsterStats monster={monster || {}} />
             </Case>
             <Case condition={selectedIndex === 1}>
               <MonsterDrops monsterDrops={monsterDrops} />

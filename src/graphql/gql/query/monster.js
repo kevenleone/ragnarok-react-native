@@ -15,6 +15,29 @@ const StatusReference = gql`
   }
 `;
 
+export const getMonstersGalery = gql`
+  query getMonstersGalery {
+    getMonstersGalery {
+      id
+      image {
+        art
+      }
+    }
+  }
+`;
+
+export const getMonsterRandom = gql`
+  query getMonsterRandom {
+    getMonsterRandom {
+      id
+      kName
+      image {
+        art
+      }
+    }
+  }
+`;
+
 export const getMonsterFilter = gql`
   query getMonsterFilter($data: MonsterFilter!) {
     getMonsterFilter(data: $data) {

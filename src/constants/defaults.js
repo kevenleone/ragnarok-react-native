@@ -32,6 +32,11 @@ export const HomeCategories = [
   {
     title: 'Cards',
     uri: 'http://file5.ratemyserver.net/items/small/card.gif',
-    action: [],
+    action() {
+      return {
+        page: 'Cards',
+        payload: '',
+      };
+    },
   },
 ];
