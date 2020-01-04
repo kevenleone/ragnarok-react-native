@@ -55,6 +55,8 @@
     "@storybook/react-native-server": "^5.2.8",
     "babel-loader": "^8.0.6",
     "babel-preset-expo": "^7.0.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
@@ -64,8 +66,20 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.1.0",
     "jest-expo": "^35.0.0",
-    "jest-expo-enzyme": "^0.0.1"
+    "jest-expo-enzyme": "^0.0.1",
+    "lint-staged": "^9.5.0"
   },
-  "private": true
+  "private": true,
+  "husky": {
+    "commitizen": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
