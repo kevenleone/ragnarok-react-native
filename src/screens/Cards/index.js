@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { ButtonGroup } from 'react-native-elements';
 import { ScrollView } from 'react-native';
-import { Query } from 'react-apollo';
 import { Switch, Case } from 'react-if';
+import { Query } from 'react-apollo';
+import PropTypes from 'prop-types';
+
+import { getMonstersGalery } from '../../graphql/gql/query/monster';
 import { Galery, Discovery } from '../../components/Card';
 import Page from '../../components/UI/Page';
-import { getMonstersGalery } from '../../graphql/gql/query/monster';
 
 const buttons = ['Galery', 'Discovery'];
 
 const CardsScreen = ({ navigation }) => {
   const [variables, setVariables] = useState({ data: { Page: 1 } });
   const [cards, setCards] = useState([]);
-  const [selectedIndex, setIndex] = useState(1);
+  const [selectedIndex, setIndex] = useState(0);
   const [firstLoad, setFirstLoad] = useState(true);
 
   function onCompleted(data) {
@@ -23,35 +25,44 @@ const CardsScreen = ({ navigation }) => {
   }
 
   return (
-    <ScrollView>
+    <>
       <ButtonGroup
         onPress={setIndex}
         selectedIndex={selectedIndex}
         buttons={buttons}
         containerStyle={{ height: 30 }}
       />
+
       <Switch>
         <Case condition={selectedIndex === 0}>
           <Query query={getMonstersGalery} variables={variables} onCompleted={onCompleted}>
-            {({ data, loading, error }) => (
+            {({ loading, error }) => (
               <Page loading={loading} error={error}>
-                <Galery
-                  setVariables={setVariables}
-                  navigation={navigation}
-                  variables={variables}
-                  cards={cards}
-                />
+                <ScrollView>
+                  <Galery
+                    setVariables={setVariables}
+                    navigation={navigation}
+                    variables={variables}
+                    cards={cards}
+                  />
+                </ScrollView>
               </Page>
             )}
           </Query>
         </Case>
 
         <Case condition={selectedIndex === 1}>
-          <Discovery />
+          <Discovery navigation={navigation} />
         </Case>
       </Switch>
-    </ScrollView>
+    </>
   );
+};
+
+CardsScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default CardsScreen;

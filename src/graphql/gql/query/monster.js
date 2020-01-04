@@ -31,8 +31,10 @@ export const getMonsterRandom = gql`
     getMonsterRandom {
       id
       kName
+      color
       image {
         art
+        animated
       }
     }
   }
@@ -71,6 +73,7 @@ export const getMonsterById = gql`
           mobplace {
             id
             map
+            img
             spawn
             quantity
           }

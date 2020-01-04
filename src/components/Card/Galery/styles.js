@@ -9,7 +9,7 @@ export const Container = styled.View`
 `;
 
 export const MapView = styled.TouchableOpacity`
-  width: 48%;
+  width: 45%;
   margin-horizontal: 2px;
   margin-vertical: 10px;
   align-items: center;

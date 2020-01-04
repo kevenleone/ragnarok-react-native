@@ -8,7 +8,7 @@ import Image from '../UI/Image';
 const MapLocation = ({ place, navigation }) => (
   <Card onPress={() => navigation.navigate('MapScreen', { title: place.map, map: place.map })}>
     <MapTitle>{place.map}</MapTitle>
-    <Image style={{ width: 230, height: 300 }} src={`http://www.ragnadb.com.br/img/maps/${place.map}.gif`} />
+    <Image style={{ width: 230, height: 300 }} src={place.img} />
     <Info>{`${place.quantity}/${place.spawn}`}</Info>
   </Card>
 );
@@ -41,9 +41,10 @@ MapLocation.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   place: PropTypes.shape({
-    map: PropTypes.string,
     quantity: PropTypes.number,
     spawn: PropTypes.string,
+    map: PropTypes.string,
+    img: PropTypes.string,
   }).isRequired,
 };
 
