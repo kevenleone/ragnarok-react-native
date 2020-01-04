@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { Platform } from 'react-native';
 
 import MonstersScreen from '../screens/Monsters';
@@ -7,11 +7,13 @@ import HomeScreen from '../screens/Home';
 import MapsScreen from '../screens/Maps';
 import MapScreen from '../screens/Map';
 import CardScreen from '../screens/Cards';
+import SignIn from '../screens/SignIn';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
+
 
 const HomeStack = createStackNavigator(
   {
@@ -43,4 +45,10 @@ const HomeStack = createStackNavigator(
 
 HomeStack.path = '';
 
-export default HomeStack;
+const SwitchNavigator = createSwitchNavigator({
+  SignIn,
+  Home: HomeStack,
+});
+
+
+export default SwitchNavigator;

@@ -11,3 +11,4 @@ web-build/
 web-report/
 *.snap.*
 yarn-error.log
+*.DS_Store
