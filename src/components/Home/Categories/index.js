@@ -1,10 +1,11 @@
 import React from 'react';
 import { When } from 'react-if';
 import PropTypes from 'prop-types';
+import MenuCategory from '../../MenuCategory';
+import { dict } from '../../UI/Translate';
 import {
   CardList, Touchable, ButtonText,
 } from './styles';
-import MenuCategory from '../../MenuCategory';
 
 const Categories = ({
   items, subItems, navigation, setSubItems,
@@ -24,7 +25,7 @@ const Categories = ({
     <>
       <When condition={subItems !== null}>
         <Touchable onPress={() => setSubItems(null)}>
-          <ButtonText color="#999">Back to Main List</ButtonText>
+          <ButtonText color="#999">{dict.translate('CATEGORIES_BACK')}</ButtonText>
         </Touchable>
       </When>
 

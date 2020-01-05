@@ -16,7 +16,9 @@ export const Card = styled.TouchableOpacity`
   padding: 10px;
 `;
 
-export const CardList = styled.ScrollView``;
+export const CardList = styled.ScrollView`
+  align-self: center;
+`;
 
 export const Info = styled.Text``;
 

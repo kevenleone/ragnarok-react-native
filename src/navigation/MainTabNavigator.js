@@ -1,5 +1,6 @@
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { Platform } from 'react-native';
+import { dict } from '../components/UI/Translate';
 
 import MonstersScreen from '../screens/Monsters';
 import MonsterScreen from '../screens/Monster';
@@ -8,6 +9,8 @@ import MapsScreen from '../screens/Maps';
 import MapScreen from '../screens/Map';
 import CardScreen from '../screens/Cards';
 import SignIn from '../screens/SignIn';
+
+const { translate } = dict;
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -29,7 +32,7 @@ const HomeStack = createStackNavigator(
       const { routeName, params } = navigation.state;
       const title = params && params.title ? params.title : routeName;
       return {
-        headerTitle: title,
+        headerTitle: translate(title.toUpperCase()),
         headerStyle: {
           backgroundColor: '#1A5276',
         },

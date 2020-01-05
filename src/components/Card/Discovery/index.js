@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useLazyQuery } from 'react-apollo';
 import PropTypes from 'prop-types';
 import { When } from 'react-if';
-import MonsterCard from '../../MonsterCard';
 import { getMonsterRandom } from '../../../graphql/gql/query/monster';
 import DiscoveryImg from '../../../../assets/images/discovery.jpg';
+import MonsterCard from '../../MonsterCard';
 import {
   Card, Container, Flip, Image, Header,
 } from './styles';
 
-function Discovery({ navigation }) {
+function Discovery({ navigation, translate }) {
   const [flipedImg, setFlipImage] = useState(DiscoveryImg);
   const [enableMessages, setEnableMessages] = useState(false);
   const [shouldFlip, setShouldFlip] = useState(true);
@@ -35,7 +35,10 @@ function Discovery({ navigation }) {
 
   return (
     <Container>
-      <Header>{shouldFlip ? 'Click to Discovery' : !enableMessages ? 'Getting the best card' : `You got ${monster && monster.kName} Card`}</Header>
+      <Header>
+        {shouldFlip ? translate('DISCOVERY_CLICK') : !enableMessages
+          ? translate('DISCOVERY_LOADING') : translate('DISCOVERY_GOT_CARD', { card: monster.kName })}
+      </Header>
       <Flip
         duration={2000}
         ref={(c) => card = c} //eslint-disable-line
@@ -57,6 +60,7 @@ function Discovery({ navigation }) {
 }
 
 Discovery.propTypes = {
+  translate: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

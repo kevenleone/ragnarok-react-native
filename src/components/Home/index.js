@@ -3,11 +3,14 @@ import { If, Then, Else } from 'react-if';
 import { useLazyQuery } from 'react-apollo';
 import PropTypes from 'prop-types';
 import { getMonsterFilter } from '../../graphql/gql/query/monster';
+import { dict } from '../UI/Translate';
 import SearchList from './SearchList';
 import Categories from './Categories';
 import {
   Container, Content, Title, Input,
 } from './styles';
+
+const { translate } = dict;
 
 const Home = ({ navigation, list, races }) => {
   const [subItems, setSubItems] = useState(null);
@@ -27,7 +30,7 @@ const Home = ({ navigation, list, races }) => {
   }
 
   const newList = list.map((lx) => {
-    if (lx.title === 'Races') {
+    if (lx.title === translate('RACES')) {
       // eslint-disable-next-line no-param-reassign
       lx.action = races.map((race) => ({ ...race, page: 'Monsters', params: { data: { data: { Race: race.id } } } }));
     }
@@ -39,14 +42,14 @@ const Home = ({ navigation, list, races }) => {
   return (
     <Container>
       <Content>
-        <Title>What Monster are you looking for?</Title>
+        <Title>{translate('HOME_SEARCH_TITLE')}</Title>
         <Input
           leftIconContainerStyle={{ marginLeft: -5, marginRight: 10 }}
           leftIcon={{ type: 'ionicon', name: 'ios-search' }}
           rightIcon={{ type: 'ionicon', name: 'ios-close', onPress: () => handleChange('') }}
-          placeholder="Search for your favorite Monster"
+          placeholder={translate('HOME_SEARCH_PLACEHOLDER')}
           onChangeText={(text) => handleChange(text)}
-          autoCapitalize="none"
+          autoCapitalize="words"
           value={search}
         />
 

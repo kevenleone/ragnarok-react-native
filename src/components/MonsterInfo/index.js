@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Switch, Case } from 'react-if';
-
 import PropTypes from 'prop-types';
 import {
   Container,
@@ -22,9 +21,12 @@ import {
 import MonsterStats from '../MonsterStats';
 import MonsterLocation from '../MonsterLocation';
 import MonsterDrops from '../MonsterDrops';
+import { dict } from '../UI/Translate';
+
+const { translate } = dict;
 
 const MonsterInfo = ({ navigation, monster }) => {
-  const buttons = ['Stats', 'Drops', 'Location'];
+  const buttons = [translate('INFO_STATS'), translate('INFO_DROPS'), translate('INFO_LOCATION')];
   const [selectedIndex, setIndex] = useState(0);
   const { goBack } = navigation;
   const {

@@ -5,11 +5,15 @@ import { Switch, Case } from 'react-if';
 import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
+import { dict } from '../../components/UI/Translate';
+
 import { getMonstersGalery } from '../../graphql/gql/query/monster';
 import { Galery, Discovery } from '../../components/Card';
 import Page from '../../components/UI/Page';
 
-const buttons = ['Galery', 'Discovery'];
+const { translate } = dict;
+
+const buttons = [translate('GALERY'), translate('DISCOVERY')];
 
 const CardsScreen = ({ navigation }) => {
   const [variables, setVariables] = useState({ data: { Page: 1 } });
@@ -52,7 +56,7 @@ const CardsScreen = ({ navigation }) => {
         </Case>
 
         <Case condition={selectedIndex === 1}>
-          <Discovery navigation={navigation} />
+          <Discovery navigation={navigation} translate={translate} />
         </Case>
       </Switch>
     </>

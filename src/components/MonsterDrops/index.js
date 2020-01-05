@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 import { ListItem } from './styles';
 
 const MonsterDrops = ({ monsterDrops }) => (
-  <View>
+  <>
     { monsterDrops.map((item) => (
       <ListItem
         key={item.id}
@@ -14,7 +13,7 @@ const MonsterDrops = ({ monsterDrops }) => (
         chevron
       />
     ))}
-  </View>
+  </>
 );
 
 MonsterDrops.propTypes = {

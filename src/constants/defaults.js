@@ -1,7 +1,10 @@
+import { dict } from '../components/UI/Translate';
+
+const { translate } = dict;
 // eslint-disable-next-line import/prefer-default-export
 export const HomeCategories = [
   {
-    title: 'Monsters',
+    title: translate('CATEGORY_MONSTERS'),
     uri: 'http://www.ragnadb.com.br/img/monstro/1261/rosa-selvagem.gif',
     action() {
       return {
@@ -11,11 +14,11 @@ export const HomeCategories = [
     },
   },
   {
-    title: 'Races',
+    title: translate('CATEGORY_RACES'),
     uri: 'http://www.ragnadb.com.br/img/monstro/1511/amon-ra.gif',
   },
   {
-    title: 'Maps',
+    title: translate('CATEGORY_MAPS'),
     uri: 'http://www.ragnadb.com.br/img/maps/prontera.gif',
     action() {
       return {
@@ -25,12 +28,12 @@ export const HomeCategories = [
     },
   },
   {
-    title: 'Itens',
+    title: translate('CATEGORY_ITEMS'),
     uri: 'http://www3.worldrag.com/database/media/item/2679.gif',
     action: [],
   },
   {
-    title: 'Cards',
+    title: translate('CATEGORY_CARDS'),
     uri: 'http://file5.ratemyserver.net/items/small/card.gif',
     action() {
       return {
