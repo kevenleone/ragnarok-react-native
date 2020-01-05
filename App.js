@@ -10,7 +10,6 @@ import { ApolloProvider } from 'react-apollo';
 import AppNavigator from './src/navigation/AppNavigator';
 import client from './src/graphql/apollo.client';
 import './src/config/tron';
-import './src';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);

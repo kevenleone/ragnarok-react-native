@@ -64,4 +64,4 @@ All kinds of contributions are very welcome and appreciated
 -   📥 Submit PRs to help solve issues or add features
 
 ## :book: License
-MIT license, Copyright (c) 2019 Keven Leone.
+MIT license, Copyright (c) 2020 Keven Leone.
