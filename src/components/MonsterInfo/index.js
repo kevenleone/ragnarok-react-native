@@ -21,9 +21,7 @@ import {
 import MonsterStats from '../MonsterStats';
 import MonsterLocation from '../MonsterLocation';
 import MonsterDrops from '../MonsterDrops';
-import { dict } from '../UI/Translate';
-
-const { translate } = dict;
+import { translate } from '../UI/Translate';
 
 const MonsterInfo = ({ navigation, monster }) => {
   const buttons = [translate('INFO_STATS'), translate('INFO_DROPS'), translate('INFO_LOCATION')];

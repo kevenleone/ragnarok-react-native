@@ -21,12 +21,11 @@ function normalizeRace(races) {
 
 const HomeScreen = ({ navigation }) => (
   <Query query={getRacesQuery}>
-    {({ data, loading }) => {
+    {({ data, error, loading }) => {
       const races = normalizeRace(data);
       return (
-        <Page loading={loading}>
+        <Page loading={loading} error={error}>
           <Home
-            loading={loading}
             navigation={navigation}
             list={HomeCategories}
             races={races}

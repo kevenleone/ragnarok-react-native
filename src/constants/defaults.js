@@ -1,6 +1,4 @@
-import { dict } from '../components/UI/Translate';
-
-const { translate } = dict;
+import { translate } from '../components/UI/Translate';
 // eslint-disable-next-line import/prefer-default-export
 export const HomeCategories = [
   {

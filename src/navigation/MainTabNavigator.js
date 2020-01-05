@@ -1,6 +1,6 @@
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { Platform } from 'react-native';
-import { dict } from '../components/UI/Translate';
+import { translate } from '../components/UI/Translate';
 
 import MonstersScreen from '../screens/Monsters';
 import MonsterScreen from '../screens/Monster';
@@ -9,8 +9,7 @@ import MapsScreen from '../screens/Maps';
 import MapScreen from '../screens/Map';
 import CardScreen from '../screens/Cards';
 import SignIn from '../screens/SignIn';
-
-const { translate } = dict;
+import Root from '../screens/Root';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -49,6 +48,7 @@ const HomeStack = createStackNavigator(
 HomeStack.path = '';
 
 const SwitchNavigator = createSwitchNavigator({
+  Root,
   SignIn,
   Home: HomeStack,
 });

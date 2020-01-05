@@ -14,10 +14,3 @@ export const Text = styled.Text`
   font-weight: 600;
   color: #999;
 `;
-
-export const Image = styled.Image`
-`;
-
-export const ImageView = styled.View`
-
-`;

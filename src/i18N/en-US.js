@@ -1,6 +1,6 @@
 export default {
   Lang: 'en',
-  LOGIN: 'Enter',
+  LOGIN: 'Login',
   EMAIL: 'Email',
   PASSWORD: 'Password',
   INSERT_PASSWORD: 'Insert the password',
@@ -37,4 +37,10 @@ export default {
   INFO_STATS: 'Status',
   INFO_DROPS: 'Drops',
   INFO_LOCATION: 'Location',
+
+  SIGN_IN: 'Sign In',
+  SIGN_UP: 'Sign Up',
+
+  FORGOT_PASSWORD: 'Forgot password ?',
+  ALREADY_REGISTRED: 'Already registered ?',
 };

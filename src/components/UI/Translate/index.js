@@ -9,11 +9,13 @@ if (!dict) {
   dict = new LanguageService(i18N);
 }
 
+const { translate } = dict;
+
 class Translate extends Component {
   render() {
     const { parameters, children } = this.props;
     if (children) {
-      return dict.translate(children, parameters);
+      return translate(children, parameters);
     }
     return '';
   }
@@ -28,5 +30,5 @@ Translate.defaultProps = {
   parameters: {},
 };
 
-export { dict };
+export { dict, translate };
 export default Translate;

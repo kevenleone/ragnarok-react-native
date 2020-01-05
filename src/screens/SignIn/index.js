@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Platform } from 'react-native';
 import logo from '../../../assets/images/logo.png';
-import { dict } from '../../components/UI/Translate';
+import { translate } from '../../components/UI/Translate';
+
 import {
-  Container, Button, ButtonText, Form, Input, Label, Image,
+  Container, Button, ButtonText, Form, Input, Label, Image, TextArea, LinkText,
 } from './styles';
 
 const SignIn = ({ navigation: { navigate } }) => (
@@ -12,23 +13,26 @@ const SignIn = ({ navigation: { navigate } }) => (
     <Container behavior="padding" enabled={Platform.OS === 'ios'}>
       <Image source={logo} />
       <Form>
-        <Label>{`${dict.translate('EMAIL')} *`}</Label>
+        <Label>{`${translate('EMAIL')} *`}</Label>
         <Input
-          placeholder={dict.translate('EMAIL')}
+          placeholder={translate('EMAIL')}
           placeholderTextColor="#999"
           keyboardType="email-address"
           autoCapitalize="none"
           autoCorrect={false}
         />
-        <Label>{`${dict.translate('PASSWORD')} *`}</Label>
+        <Label>{`${translate('PASSWORD')} *`}</Label>
         <Input
-          placeholder={dict.translate('INSERT_PASSWORD')}
+          placeholder={translate('INSERT_PASSWORD')}
           placeholderTextColor="#999"
           autoCapitalize="words"
           autoCorrect={false}
         />
+        <TextArea onPress={() => {}}>
+          <LinkText>{translate('FORGOT_PASSWORD')}</LinkText>
+        </TextArea>
         <Button onPress={() => navigate('Home')}>
-          <ButtonText>{dict.translate('LOGIN')}</ButtonText>
+          <ButtonText>{translate('SIGN_IN')}</ButtonText>
         </Button>
       </Form>
     </Container>

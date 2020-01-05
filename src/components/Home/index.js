@@ -3,14 +3,12 @@ import { If, Then, Else } from 'react-if';
 import { useLazyQuery } from 'react-apollo';
 import PropTypes from 'prop-types';
 import { getMonsterFilter } from '../../graphql/gql/query/monster';
-import { dict } from '../UI/Translate';
+import { translate } from '../UI/Translate';
 import SearchList from './SearchList';
 import Categories from './Categories';
 import {
   Container, Content, Title, Input,
 } from './styles';
-
-const { translate } = dict;
 
 const Home = ({ navigation, list, races }) => {
   const [subItems, setSubItems] = useState(null);

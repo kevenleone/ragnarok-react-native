@@ -5,13 +5,11 @@ import { Switch, Case } from 'react-if';
 import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
-import { dict } from '../../components/UI/Translate';
+import { translate } from '../../components/UI/Translate';
 
 import { getMonstersGalery } from '../../graphql/gql/query/monster';
 import { Galery, Discovery } from '../../components/Card';
 import Page from '../../components/UI/Page';
-
-const { translate } = dict;
 
 const buttons = [translate('GALERY'), translate('DISCOVERY')];
 

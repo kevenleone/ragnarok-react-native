@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { If, Then, Else } from 'react-if';
-import {
-  Container, ImageView, Image,
-} from './styles';
-import Loading from '../../../../assets/images/2263.gif';
+import { Container } from './styles';
+import Loading from '../Loading';
 
 const Page = ({ loading, children, delay }) => {
   const [waitDelay, setDelay] = useState(!!Number(delay));
@@ -19,10 +17,7 @@ const Page = ({ loading, children, delay }) => {
     <If condition={loading || waitDelay}>
       <Then>
         <Container>
-          {/* <Text>Fetching Data</Text> */}
-          <ImageView>
-            <Image source={Loading} />
-          </ImageView>
+          <Loading />
         </Container>
       </Then>
       <Else>

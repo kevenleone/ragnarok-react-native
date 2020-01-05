@@ -17,9 +17,11 @@
     "@expo/samples": "~3.0.3",
     "@expo/vector-icons": "^10.0.0",
     "@react-navigation/web": "^1.0.0-alpha.9",
+    "add": "^2.0.6",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.6.4",
     "apollo-link-http": "^1.5.16",
+    "apollo-link-timeout": "^1.4.0",
     "expo": "^36.0.0",
     "expo-asset": "~8.0.0",
     "expo-constants": "~8.0.0",
@@ -37,6 +39,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
     "react-native-card-flip": "^1.0.6",
     "react-native-elements": "^1.2.7",
+    "react-native-flash-message": "^0.1.15",
     "react-native-floating-action": "^1.19.1",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-modals": "^0.19.9",
@@ -45,7 +48,8 @@
     "react-navigation": "^3.12.0",
     "reactotron-react-js": "^3.3.7",
     "reactotron-react-native": "^4.0.2",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "yarn": "^1.21.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",

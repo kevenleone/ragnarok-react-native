@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ApolloProvider } from 'react-apollo';
+import FlashMessage from 'react-native-flash-message';
 import AppNavigator from './src/navigation/AppNavigator';
 import client from './src/graphql/apollo.client';
 import './src/config/tron';
@@ -25,6 +26,7 @@ export default function App(props) {
   }
   return (
     <View style={styles.container}>
+      <FlashMessage position="top" />
       {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
       <ApolloProvider client={client}>
         <AppNavigator />

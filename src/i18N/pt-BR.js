@@ -38,4 +38,7 @@ export default {
   INFO_LOCATION: 'Localização',
 
   BACK: 'Voltar',
+
+  SIGN_IN: 'Entrar',
+  SIGN_UP: 'Cadastre-se',
 };
