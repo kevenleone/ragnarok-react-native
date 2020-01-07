@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import i18N from '../../../i18N';
 import LanguageService from './LanguageService';
 
+function translateError(err) {
+  const { message } = err;
+  return message.split('GraphQL error: ').pop();
+}
+
 // eslint-disable-next-line import/no-mutable-exports
 let dict;
 if (!dict) {
@@ -30,5 +35,5 @@ Translate.defaultProps = {
   parameters: {},
 };
 
-export { dict, translate };
+export { dict, translate, translateError };
 export default Translate;

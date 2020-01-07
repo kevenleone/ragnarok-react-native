@@ -26,7 +26,7 @@ export default function App(props) {
   }
   return (
     <View style={styles.container}>
-      <FlashMessage position="top" />
+      <FlashMessage position="top" titleStyle={{ textAlign: 'center', fontWeight: 'bold' }} />
       {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
       <ApolloProvider client={client}>
         <AppNavigator />
