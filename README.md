@@ -16,6 +16,8 @@
 
 ## Motivation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kevenleone/ragnarok-react-native.svg)](https://greenkeeper.io/)
+
 Ragnarok was one of my first MMORPG, i played a lot when i was kid, my love for this game started on 2006 and played until 2011, and i still remember many things in this games, like monsters, maps, items. The golden age of this game i couldn't even imagine that i would be a programmer someday, and now i'm here,with this project for Ragnarok not be forgotten.
 
 ## Download
