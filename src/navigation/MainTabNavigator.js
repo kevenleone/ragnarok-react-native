@@ -19,6 +19,8 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
+    Root,
+    SignIn,
     Ragnarok: HomeScreen,
     Cards: CardScreen,
     MonsterScreen,
@@ -54,4 +56,4 @@ const SwitchNavigator = createSwitchNavigator({
 });
 
 
-export default SwitchNavigator;
+export default HomeStack;

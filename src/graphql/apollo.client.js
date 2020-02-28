@@ -7,7 +7,7 @@ import ApolloLinkTimeout from 'apollo-link-timeout';
 const timeoutLink = new ApolloLinkTimeout(15000); // 15 second timeout
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3333/graphql',
+  uri: 'http://192.168.0.105:3333/graphql',
   headers: async () => ({
     authorization: await AsyncStorage.getItem('@token') || 'test',
   }),
