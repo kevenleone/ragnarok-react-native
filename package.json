@@ -49,7 +49,7 @@
     "reactotron-react-js": "^3.3.7",
     "reactotron-react-native": "^4.0.2",
     "styled-components": "^4.3.2",
-    "yarn": "^1.21.1"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
